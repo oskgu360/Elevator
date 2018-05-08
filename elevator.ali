@@ -5,10 +5,11 @@ P ZX
 RN
 RV NO_CALENDAR
 RV NO_DELAY
+RV NO_ENUMERATION_MAPS
 RV NO_IO
 RV SPARK_05
 
-U elevator%b		elevator.adb		4660340f NE OO SU IL
+U elevator%b		elevator.adb		c28439a9 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -16,6 +17,8 @@ W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.float_random%s  a-nuflra.adb	a-nuflra.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
+W button%s		button.adb		button.ali
+W system.img_bool%s	s-imgboo.adb		s-imgboo.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
 W text_io%s		text_io.ads		text_io.ali
 
@@ -34,7 +37,8 @@ D a-textio.ads		20140129155348 386df5d4
 D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
-D elevator.adb		20180508023730 85dfbe45
+D button.ads		20180508031337 6d932d31
+D elevator.adb		20180508031218 6ca89ed2
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
 D system.ads		20160213141829 90249111
@@ -43,6 +47,7 @@ D s-exctab.ads		20140225151139 54135002
 D s-ficobl.ads		20120709130952 55a71d43
 D s-finmas.ads		20140225151139 814daec4
 D s-finroo.ads		20120426095924 4ff27390
+D s-imgboo.ads		20090409150019 f5d971eb
 D s-imgint.ads		20090409150019 02dbe0c2
 D s-parame.ads		20140225151139 ab8cb46a
 D s-pooglo.ads		20110804083314 542f33d0
@@ -58,28 +63,34 @@ D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
 D text_io.ads		20070406091342 45d626c9
 X 1 ada.ads
-16K9*Ada 19e8 16|2r6 2r31 3r6 3r29 4r6 4r37 5r6 5r24
+16K9*Ada 19e8 17|2r6 2r31 3r6 3r29 4r6 4r37 5r6 5r24
 X 2 a-calend.ads
-36K13*Calendar 375e17 16|5w10 5r28
+36K13*Calendar 375e17 17|5w10 5r28
 X 5 a-flteio.ads
-20K13*Float_Text_IO[13|45] 16|3w10 3r33
+20K13*Float_Text_IO[13|45] 17|3w10 3r33
 X 6 a-inteio.ads
-18K13*Integer_Text_IO[14|45] 16|2w10 2r35
+18K13*Integer_Text_IO[14|45] 17|2w10 2r35
 X 8 a-numeri.ads
-16K13*Numerics 32e17 16|4r10 4r41
+16K13*Numerics 32e17 17|4r10 4r41
 X 9 a-nuflra.ads
-41K22*Float_Random 72e30 16|4w19 4r50
+41K22*Float_Random 72e30 17|4w19 4r50
 X 12 a-textio.ads
-166U14*New_Line 16|17s73 21s18
-242U14*Put 16|17s9 17s44 21s5
-X 16 elevator.adb
-7U11*elevator 7b11 23l5 23t13
-8I10 floor_indicator<short_short_integer> 13r9
-9E10 direction_indicator 9e43 12r7
-9n34 Up{9E10}
-9n38 Down{9E10} 12r30
-12e1 dir{9E10}
-13i1 floor{8I10} 17r35 18r19 19m9 19r18
-X 38 text_io.ads
-24K9*Text_IO=24:29 16|1w6 1r19
+166U14*New_Line 17|20s50 23s73 27s18
+242U14*Put 17|20s9 23s9 23s44 27s5
+X 16 button.ads
+1K9*Button 9e11 17|6w6 6r18 16r12
+3B6*button<boolean> 17|16r19
+5V10*isPressed{boolean} 17|20s27
+7U11*press 17|21s9
+X 17 elevator.adb
+9U11*elevator 9b11 28l5 28t13
+10I10 floor_indicator<short_short_integer> 15r9
+11E10 direction_indicator 11e43 14r7
+11n34 Up{11E10}
+11n38 Down{11E10} 14r30
+14e1 dir{11E10}
+15i1 floor{10I10} 23r35 24r19 25m9 25r18
+16b1 upButton{16|3E6} 20r37 21m15 21r15
+X 40 text_io.ads
+24K9*Text_IO=24:29 17|1w6 1r19
 
