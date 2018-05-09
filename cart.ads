@@ -1,10 +1,10 @@
 WITH Ada.Containers.Indefinite_Vectors; USE Ada.Containers;
-
+with Floor; use Floor;
 PACKAGE Cart IS
 
 -- Can't make this (A, 2 .. etc as components of an enumeration type
 -- must all be literals, so add the v as a prefix
-type Rank is (vA, v2, v3, v4, v5, v6, v7, v8, v9, v10, vJ, vQ, vK);
+type Floors is array(-1..8) of floor.floor;
 
 TYPE Suit IS (C, D, H, S);
 

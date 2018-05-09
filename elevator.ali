@@ -9,7 +9,7 @@ RV NO_ENUMERATION_MAPS
 RV NO_IO
 RV SPARK_05
 
-U elevator%b		elevator.adb		c28439a9 NE OO SU IL
+U elevator%b		elevator.adb		9983798f NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -38,7 +38,7 @@ D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180508031337 6d932d31
-D elevator.adb		20180508031218 6ca89ed2
+D elevator.adb		20180508032346 37afdef4
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
 D system.ads		20160213141829 90249111
@@ -75,22 +75,23 @@ X 8 a-numeri.ads
 X 9 a-nuflra.ads
 41K22*Float_Random 72e30 17|4w19 4r50
 X 12 a-textio.ads
-166U14*New_Line 17|20s50 23s73 27s18
-242U14*Put 17|20s9 23s9 23s44 27s5
+166U14*New_Line 17|20s50 21s52 24s73 28s18
+242U14*Put 17|20s9 21s9 24s9 24s44 28s5
 X 16 button.ads
-1K9*Button 9e11 17|6w6 6r18 16r12
-3B6*button<boolean> 17|16r19
-5V10*isPressed{boolean} 17|20s27
-7U11*press 17|21s9
+1K9*Button 9e11 17|6w6 6r18 16r12 17r14
+3B6*button<boolean> 17|16r19 17r21
+5V10*isPressed{boolean} 17|20s27 21s27
+7U11*press 17|22s9
 X 17 elevator.adb
-9U11*elevator 9b11 28l5 28t13
+9U11*elevator 9b11 29l5 29t13
 10I10 floor_indicator<short_short_integer> 15r9
 11E10 direction_indicator 11e43 14r7
 11n34 Up{11E10}
 11n38 Down{11E10} 14r30
 14e1 dir{11E10}
-15i1 floor{10I10} 23r35 24r19 25m9 25r18
-16b1 upButton{16|3E6} 20r37 21m15 21r15
+15i1 floor{10I10} 24r35 25r19 26m9 26r18
+16b1 upButton{16|3E6} 20r37 22m15 22r15
+17b1 downButton{16|3E6} 21r37
 X 40 text_io.ads
 24K9*Text_IO=24:29 17|1w6 1r19
 

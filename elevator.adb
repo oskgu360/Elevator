@@ -4,6 +4,7 @@ with Ada.Float_Text_Io; use Ada.Float_Text_Io;
 with Ada.Numerics.Float_Random; use Ada.Numerics.Float_Random;
 with Ada.Calendar; use Ada.Calendar;
 with button; use button;
+with floor; use floor;
 
 
 procedure elevator is
@@ -11,12 +12,14 @@ procedure elevator is
     type direction_indicator is (Up, Down);
 
 
-dir : direction_indicator := Down;
-floor : floor_indicator := 8;
-upButton : button.button := False;
+    dir : direction_indicator := Down;
+    floor : floor_indicator := 8;
+    upButton : button.button := False;
+    f_one : floor.floor := -1;
+    
 begin    
+    initFloor(f_one, 1);
     loop
-
         put(Boolean'Image(isPressed(upButton))); new_line;
         press(upButton);
 
