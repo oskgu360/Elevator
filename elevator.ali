@@ -1,15 +1,16 @@
 V "GNAT Lib v4.9"
 M P W=b
-P ZX
+P SS ZX
 
 RN
 RV NO_CALENDAR
 RV NO_DELAY
 RV NO_ENUMERATION_MAPS
 RV NO_IO
+RV NO_SECONDARY_STACK
 RV SPARK_05
 
-U elevator%b		elevator.adb		9983798f NE OO SU IL
+U elevator%b		elevator.adb		e8b24199 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -18,8 +19,10 @@ W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.float_random%s  a-nuflra.adb	a-nuflra.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W button%s		button.adb		button.ali
+W floors%s		floors.adb		floors.ali
 W system.img_bool%s	s-imgboo.adb		s-imgboo.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W text_io%s		text_io.ads		text_io.ali
 
 D ada.ads		20070406091342 3ffc8e18
@@ -38,7 +41,8 @@ D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180508031337 6d932d31
-D elevator.adb		20180508032346 37afdef4
+D elevator.adb		20180509065325 90ef4539
+D floors.ads		20180509065122 d671a3db
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
 D system.ads		20160213141829 90249111
@@ -52,12 +56,14 @@ D s-imgint.ads		20090409150019 02dbe0c2
 D s-parame.ads		20140225151139 ab8cb46a
 D s-pooglo.ads		20110804083314 542f33d0
 D s-rannum.ads		20140124162202 5eb33f0a
+D s-secsta.ads		20140225151139 86a2856d
 D s-soflin.ads		20140225151139 aa763b52
 D s-stache.ads		20140225151139 a37c21ec
 D s-stalib.ads		20140225151139 a891183f
 D s-stoele.ads		20140225151139 2dc34a04
 D s-stoele.adb		20140225151139 ed88f8fb
 D s-stopoo.ads		20131010103753 b16154c2
+D s-stratt.ads		20131014135145 aedef97e
 D s-traent.ads		20140225151139 b5116092
 D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
@@ -75,23 +81,29 @@ X 8 a-numeri.ads
 X 9 a-nuflra.ads
 41K22*Float_Random 72e30 17|4w19 4r50
 X 12 a-textio.ads
-166U14*New_Line 17|20s50 21s52 24s73 28s18
-242U14*Put 17|20s9 21s9 24s9 24s44 28s5
+166U14*New_Line 17|24s50 27s73 31s18
+242U14*Put 17|22s5 24s9 27s9 27s44 31s5
 X 16 button.ads
-1K9*Button 9e11 17|6w6 6r18 16r12 17r14
-3B6*button<boolean> 17|16r19 17r21
-5V10*isPressed{boolean} 17|20s27 21s27
-7U11*press 17|22s9
+1K9*Button 9e11 17|6w6 6r18 17r16
+3B6*button<boolean> 17|17r23
+5V10*isPressed{boolean} 17|24s27
+7U11*press 17|25s9
 X 17 elevator.adb
-9U11*elevator 9b11 29l5 29t13
-10I10 floor_indicator<short_short_integer> 15r9
-11E10 direction_indicator 11e43 14r7
-11n34 Up{11E10}
-11n38 Down{11E10} 14r30
-14e1 dir{11E10}
-15i1 floor{10I10} 24r35 25r19 26m9 26r18
-16b1 upButton{16|3E6} 20r37 22m15 22r15
-17b1 downButton{16|3E6} 21r37
-X 40 text_io.ads
+10U11*elevator 10b11 32l5 32t13
+11I10 floor_indicator<short_short_integer> 16r13
+12E10 direction_indicator 12e43 15r11
+12n34 Up{12E10}
+12n38 Down{12E10} 15r34
+15e5 dir{12E10}
+16i5 floor{11I10} 27r35 28r19 29m9 29r18
+17b5 upButton{16|3E6} 24r37 25m15 25r15
+18r5 f_one{18|4R10} 21r26
+19i5 level{integer} 21m5 22r23
+X 18 floors.ads
+2K9*Floors 17|7w6 7r18 18r13 18|12e11
+4R10*floors 17|18r20 18|7e19
+9V14*initFloor{4R10} 17|18s30
+10V14*which_level{integer} 17|21s14
+X 43 text_io.ads
 24K9*Text_IO=24:29 17|1w6 1r19
 
