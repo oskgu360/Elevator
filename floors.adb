@@ -1,4 +1,5 @@
 with Text_Io; use Text_Io;
+with Button; use Button;
 
 PACKAGE BODY Floors IS
     
@@ -6,12 +7,9 @@ PACKAGE BODY Floors IS
     F : floors;
     BEGIN 
         F.level := L;
+        F.buttons(1) := False;
+        F.buttons(2) := False;
         return F;
     END; 
-
-    function which_level(F : floors) return integer is
-    BEGIN
-        return F.level;
-    END;
 
 End Floors;

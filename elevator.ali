@@ -10,7 +10,7 @@ RV NO_IO
 RV NO_SECONDARY_STACK
 RV SPARK_05
 
-U elevator%b		elevator.adb		e8b24199 NE OO SU IL
+U elevator%b		elevator.adb		48df8a20 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -41,8 +41,8 @@ D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180508031337 6d932d31
-D elevator.adb		20180509065325 90ef4539
-D floors.ads		20180509065122 d671a3db
+D elevator.adb		20180509071516 fd619705
+D floors.ads		20180509070210 1b92ba5e
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
 D system.ads		20160213141829 90249111
@@ -81,29 +81,30 @@ X 8 a-numeri.ads
 X 9 a-nuflra.ads
 41K22*Float_Random 72e30 17|4w19 4r50
 X 12 a-textio.ads
-166U14*New_Line 17|24s50 27s73 31s18
-242U14*Put 17|22s5 24s9 27s9 27s44 31s5
+166U14*New_Line 17|20s38 21s54 23s54 36s18
+242U14*Put 17|20s5 21s5 23s5 36s5
 X 16 button.ads
 1K9*Button 9e11 17|6w6 6r18 17r16
 3B6*button<boolean> 17|17r23
-5V10*isPressed{boolean} 17|24s27
-7U11*press 17|25s9
+5V10*isPressed{boolean} 17|21s23 23s23
+7U11*press 17|22s5
 X 17 elevator.adb
-10U11*elevator 10b11 32l5 32t13
+10U11*elevator 10b11 37l5 37t13
 11I10 floor_indicator<short_short_integer> 16r13
 12E10 direction_indicator 12e43 15r11
 12n34 Up{12E10}
 12n38 Down{12E10} 15r34
 15e5 dir{12E10}
-16i5 floor{11I10} 27r35 28r19 29m9 29r18
-17b5 upButton{16|3E6} 24r37 25m15 25r15
-18r5 f_one{18|4R10} 21r26
-19i5 level{integer} 21m5 22r23
+16i5 floor{11I10}
+17b5 upButton{16|3E6}
+18r5 f_one{18|5R10} 20r23 21r33 22m11 22r11 23r33
 X 18 floors.ads
-2K9*Floors 17|7w6 7r18 18r13 18|12e11
-4R10*floors 17|18r20 18|7e19
-9V14*initFloor{4R10} 17|18s30
-10V14*which_level{integer} 17|21s14
+2K9*Floors 17|7w6 7r18 18r13 18|16e11
+4A10*dir_buttons(16|3E6)<integer>
+5R10*floors 17|18r20 18|9e19
+7i13*level{integer} 17|20r29
+8a13*buttons{4A10} 17|21r39 22m17 23r39
+11V14*initFloor{5R10} 17|18s30
 X 43 text_io.ads
 24K9*Text_IO=24:29 17|1w6 1r19
 

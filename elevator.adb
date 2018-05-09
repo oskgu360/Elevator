@@ -16,17 +16,22 @@ procedure elevator is
     floor : floor_indicator := 8;
     upButton : button.button := False;
     f_one : floors.floors := initFloor(-1);
-    level : integer;
 begin  
-    level := which_level(f_one);
-    put(Integer'Image(level));
-    loop
-        put(Boolean'Image(isPressed(upButton))); new_line;
-        press(upButton);
+    put(Integer'Image(f_one.level)); new_line;
+    put(Boolean'Image(isPressed(f_one.buttons(2)))); new_line;
+    press(f_one.buttons(2));
+    put(Boolean'Image(isPressed(f_one.buttons(2)))); new_line;
+    
+    
+    
+    
+    -- loop
+    --     put(Boolean'Image(isPressed(upButton))); new_line;
+    --     press(upButton);
         
-        put(Integer'Image(Integer(floor)));put(" aaaaaaaaaaaaaaaaaaah");new_line;
-        exit when floor = -1;
-        floor := floor -1;        
-    end loop;
+    --     put(Integer'Image(Integer(floor)));put(" aaaaaaaaaaaaaaaaaaah");new_line;
+    --     exit when floor = -1;
+    --     floor := floor -1;        
+    -- end loop;
     put("splat");new_line;
 end elevator;

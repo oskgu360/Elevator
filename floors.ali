@@ -5,17 +5,19 @@ RN
 RV NO_DISPATCHING_CALLS
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLICIT_LOOPS
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U floors%b		floors.adb		4d09aac3 NE OO PK KU
+U floors%b		floors.adb		8206fcf6 NE OO PK KU
+W button%s		button.adb		button.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W text_io%s		text_io.ads		text_io.ali
 
-U floors%s		floors.ads		bbe28eea EE OO PF PK KU
+U floors%s		floors.ads		7601976f EE OO PF PK KU
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
@@ -34,8 +36,8 @@ D a-tags.ads		20111212115430 6c0509d0
 D a-textio.ads		20140129155348 386df5d4
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180508031337 6d932d31
-D floors.ads		20180509065122 d671a3db
-D floors.adb		20180509065234 deae2fd1
+D floors.ads		20180509070210 1b92ba5e
+D floors.adb		20180509071349 b1d14d50
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
 D system.ads		20160213141829 90249111
@@ -59,17 +61,18 @@ D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
 D text_io.ads		20070406091342 45d626c9
 X 9 button.ads
-1K9*Button 9e11 10|1w6 1r18
+1K9*Button 9e11 10|1w6 1r18 4r40 11|2w6 2r18
+3B6*button<boolean> 10|4r47
 X 10 floors.ads
-2K9*Floors 12l5 12e11 11|3b14 17l5 17t11
-4R10*floors 7e19 9p14 9r44 10p14 10r30 11|5r44 6r9 12r30
-6i13*level{integer} 11|8m11 14r18
-9V14*initFloor{4R10} 9>24 11|5b14 10t8
-9i24 L{integer} 11|5b24 8r20
-10V14*which_level{integer} 10>26 11|12b14 15t8
-10r26 F{4R10} 11|12b26 14r16
+2K9*Floors 16l5 16e11 11|4b14 15l5 15t11
+4A10*dir_buttons(9|3E6)<integer> 8r23
+5R10*floors 9e19 11p14 11r44 11|6r44 7r9
+7i13*level{integer} 11|9m11
+8a13*buttons{4A10} 11|10m11 11m11
+11V14*initFloor{5R10} 11>24 11|6b14 13t8
+11i24 L{integer} 11|6b24 9r20
 X 11 floors.adb
-6r5 F{10|4R10} 8m9 9r16
+7r5 F{10|5R10} 9m9 10m9 11m9 12r16
 X 33 text_io.ads
 24K9*Text_IO=24:29 11|1w6 1r19
 
