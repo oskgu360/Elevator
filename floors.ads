@@ -1,7 +1,8 @@
 with Button; use Button;
 PACKAGE Floors IS
 
-    type dir_buttons is array(1..2) of button.button;
+    type direction is (Up, Down);
+    type dir_buttons is array(direction) of button.button;   
     type floors is tagged 
         record
             level : Integer;

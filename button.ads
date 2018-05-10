@@ -6,4 +6,6 @@ function isPressed(B : button) return Boolean;
 
 procedure press(B : IN OUT button);
 
+function initButton return button; -- Constructor
+
 End Button;

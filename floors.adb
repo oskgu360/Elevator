@@ -7,8 +7,8 @@ PACKAGE BODY Floors IS
     F : floors;
     BEGIN 
         F.level := L;
-        F.buttons(1) := False;
-        F.buttons(2) := False;
+        F.buttons(Up) := initButton;
+        F.buttons(Down) := initButton;
         return F;
     END; 
 
