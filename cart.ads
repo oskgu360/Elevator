@@ -10,6 +10,8 @@ PACKAGE Cart IS
       type cart is tagged 
             record
                   level : floors.floors;
+                  max_level : integer;
+                  min_level : integer;
                   floorList : floor_list;
                   buttons : floor_buttons;
                   dir : direction;
@@ -20,5 +22,9 @@ PACKAGE Cart IS
       -- function which_level(F : floors) return integer;  FUCK GETTERS
 
       procedure driveCart(C : cart);
+
+      procedure pressCartButton(C : cart; L : integer);
+
+      procedure pressFloorButton(C : cart; L : integer; D : direction);
 
 End Cart;

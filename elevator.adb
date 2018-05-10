@@ -27,14 +27,16 @@ procedure elevator is
     begin
         select
             accept cart_press(F : in integer) do
-                put(Integer'Image(F));
+                put(Integer'Image(F)); -- Tudou: Call pressbutton on cart
             end cart_press;
         or  
             accept floor_press(D : in direction; L : in integer) do
-                put(Integer'Image(L));
+                put(Integer'Image(L)); -- Tudou: Call pressbutton on cart
             end floor_press;
         end select;
     end button_signals; 
+
+    -- Tudou: Create simulation task that accepts input from terminal
 
     --- MAIN ---
 begin  
@@ -43,6 +45,7 @@ begin
     press(f_one.buttons(Up));
     put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
     driveCart(cart_one);
+    button_signals.cart_press(1);
     
     -- loop
     --     put(Boolean'Image(isPressed(upButton))); new_line;
@@ -52,6 +55,6 @@ begin
     --     exit when floor = -1;
     --     floor := floor -1;        
     -- end loop;
-    put("splat");new_line;
+    new_line; put("splat");new_line;
     abort button_signals;
 end elevator;

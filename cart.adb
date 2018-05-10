@@ -10,7 +10,9 @@ PACKAGE BODY Cart IS
                   C.buttons(I) := initButton;
             end loop;
 
-            C.level := C.floorList(0);          
+            C.level := C.floorList(0);   
+            C.max_level := C.level.level;
+            C.min_level := C.level.level;
             C.dir := Up;
             C.idle := true;
             RETURN C;
@@ -19,7 +21,23 @@ PACKAGE BODY Cart IS
       procedure driveCart(C : cart) IS
       BEGIN
             IF C.idle THEN
-                  put("Success");
+                  C.idle := False;
+                  -- TODO: go up and down, add timings (delay until), 
+                  -- remove button presses when a floor is visited
+                  loop
+                  exit when C.min_level = C.max_level = C.level.level;
+                  end loop;
+                  C.idle := True;
             END IF;
+      END;
+
+      procedure pressCartButton(C : cart; L : integer) IS
+      BEGIN
+            -- Tudou: Call pressbutton on C.buttons(L)
+      END;
+
+      procedure pressFloorButton(C : cart; L : integer; D : direction) IS 
+      BEGIN 
+            -- Tudou: Call pressbutton on C.floor_list(L).buttons(D)
       END;
 End Cart;

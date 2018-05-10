@@ -22,7 +22,7 @@ RV MAX_SELECT_ALTERNATIVES=2
 RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1+
 
-U elevator%b		elevator.adb		252dca5b NE OO SU IL
+U elevator%b		elevator.adb		8f8fac96 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -67,7 +67,7 @@ D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180510025057 cfa08a70
 D cart.ads		20180510025504 20dc2665
-D elevator.adb		20180510030344 b1770f0b
+D elevator.adb		20180510030552 1bd569c6
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
 D i-c.ads		20110801143639 5421119b
@@ -125,8 +125,8 @@ X 11 a-numeri.ads
 X 12 a-nuflra.ads
 41K22*Float_Random 72e30 22|4w19 4r50
 X 16 a-textio.ads
-166U14*New_Line 22|41s38 42s55 44s55 58s18
-242U14*Put 22|30s17 34s17 41s5 42s5 44s5 58s5
+166U14*New_Line 22|41s38 42s55 44s55 56s5 56s28
+242U14*Put 22|30s17 34s17 41s5 42s5 44s5 56s15
 X 20 button.ads
 1K9*Button 11e11 22|6w6 6r18 16r16
 3B6*button<boolean> 22|16r23
@@ -139,7 +139,7 @@ X 21 cart.ads
 19V16*initCart{10R12} 22|18s29
 22U17*driveCart 22|45s5
 X 22 elevator.adb
-11U11*elevator 11b11 60l5 60t13
+11U11*elevator 11b11 58l5 58t13
 12I10 floor_indicator<short_short_integer> 15r13
 13E10 direction 13e33 14r11 24r35 33r39
 13n24 Up{13E10}
@@ -149,8 +149,8 @@ X 22 elevator.adb
 16b5 upButton{20|3E6}
 17r5 f_one{23|6R10} 41r23 42r33 43m11 43r11 44r33
 18r5 cart_one{21|10R12} 45r15
-22t10 button_signals 26b15 37l9 37t23 59r11
-23Y15 cart_press 23>27 29b20 31l17 31t27
+22t10 button_signals 26b15 37l9 37t23 46r5 57r11
+23Y15 cart_press 23>27 29b20 31l17 31t27 46s20
 23i27 F{integer} 30r35
 24Y15 floor_press 24>28 24>46 33b20 35l17 35t28
 24e28 D{13E10}
