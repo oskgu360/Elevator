@@ -13,13 +13,13 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U cart%b		cart.adb		9dab85cf NE OO PK KU
+U cart%b		cart.adb		efc45d61 NE OO PK KU
 W ada.tags%s		a-tags.adb		a-tags.ali
 W interfaces%s		interfac.ads		interfac.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W text_io%s		text_io.ads		text_io.ali
 
-U cart%s		cart.ads		12ab8b77 EE OO PF PK KU
+U cart%s		cart.ads		020bde3a EE OO PF PK KU
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 W ada.containers.indefinite_vectors%s
@@ -45,8 +45,8 @@ D a-tags.ads		20111212115430 6c0509d0
 D a-textio.ads		20140129155348 386df5d4
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180510025057 cfa08a70
-D cart.ads		20180512070443 aa353bf7
-D cart.adb		20180512070334 724898f1
+D cart.ads		20180512072026 ba956eba
+D cart.adb		20180512072104 10871512
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
@@ -82,19 +82,20 @@ X 7 a-iteint.ads
 X 12 button.ads
 1K9*Button 11e11 13|3w6 3r18 8r45
 3B6*button<boolean> 13|8r52
+5V10*isPressed{boolean} 14|52s26 53s25 54s25 59s26 60s25 61s25
 7U11*press 14|38s13 44s13
 9V10*initButton{3E6} 14|10s35
 X 13 cart.ads
-4K9*Cart 30l5 30e9 14|3b14 46l5 46t9
+4K9*Cart 32l5 32e9 14|3b14 67l5 67t9
 6A12*floor_list(15|6R10)<integer> 15r31
 8A12*floor_buttons(12|3E6)<integer> 16r29
-10R12*cart 19e23 21p16 21r32 24p17 24r38 26p17 26r44 28p17 28r45 14|5r32
-. 6r17 21r38 35r44 41r45
+10R12*cart 19e23 21p16 21r32 24p17 24r38 26p17 26r44 28p17 28r45 30p17 30r44
+. 14|5r32 6r17 21r38 35r44 41r45 47r44
 12r19*level{15|6R10} 14|13m15 14r30 15r30 29r75
-13i19*max_level{integer} 14|14m15 29r45 29r61
-14i19*min_level{integer} 14|15m15 29r31
-15a19*floorList{6A12} 14|9m21 13r26 44m21
-16a19*buttons{8A12} 14|10m21 38m21
+13i19*max_level{integer} 14|14m15 29r45 29r61 58r28 63m27
+14i19*min_level{integer} 14|15m15 29r31 51r28 56m27
+15a19*floorList{6A12} 14|9m21 13r26 44m21 52r38 53r37 59r38 60r37
+16a19*buttons{8A12} 14|10m21 38m21 54r37 61r37
 17e19*dir{15|4E10} 14|16m15
 18b19*idle{boolean} 14|17m15 23r18 24m21 31m21
 21V16*initCart{10R12} 14|5b16 19t10
@@ -107,18 +108,23 @@ X 13 cart.ads
 28r34 C{10R12} 14|41b34 44m19 44r19
 28i51 L{integer} 14|41b51 44r31
 28e71 D{15|4E10} 14|41b71 44r42
+30U17*calculateMinMax 30=33 14|47b17 66t10
+30r33 C{10R12} 14|47b33 51r26 52r36 53r35 54r35 56m25 58r26 59r36 60r35 61r35
+. 63m25
 X 14 cart.adb
 6r13 C{13|10R12} 9m19 9r19 10m19 13m13 13r24 14m13 14r28 15m13 15r28 16m13
 . 17m13 18r20
 8i17 I{integer} 9r31 9r47 10r29
+50i17 L{integer} 51r22 52r48 53r47 54r45 56r40 58r22 59r48 60r47 61r45 63r40
 X 15 floors.ads
 2K9*Floors 13|2w6 2r18 6r42 12r27 17r25 15|15e11
 4E10*direction 13|17r32 28r82 14|41r82 15|4e33
-4n24*Up{4E10} 14|16r22
+4n24*Up{4E10} 14|16r22 52r59 59r59
+4n28*Down{4E10} 14|53r58 60r58
 5A10*dir_buttons(12|3E6)<4E10>
 6R10*floors 13|6r49 12r34 15|10e19
 8i13*level{integer} 14|14r36 15r36 29r81
-9a13*buttons{5A10} 14|44m34
+9a13*buttons{5A10} 14|44m34 52r51 53r50 59r51 60r50
 12V14*initFloor{6R10} 14|9s37
 X 37 text_io.ads
 24K9*Text_IO=24:29 14|1w6 1r19

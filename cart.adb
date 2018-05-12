@@ -43,4 +43,25 @@ PACKAGE BODY Cart IS
             -- Tudou: Call pressbutton on C.floorList(L).buttons(D)
             press(C.floorList(L).buttons(D));
       END;
+
+      procedure calculateMinMax(C : IN OUT cart) IS 
+      -- Calculate new min and max after change in button presses --
+      BEGIN
+            for L in -1..8 loop
+                  if L < C.min_level AND 
+                        (isPressed(C.floorList(L).buttons(Up)) OR 
+                        isPressed(C.floorList(L).buttons(Down)) OR
+                        isPressed(C.buttons(L)))
+                  then
+                        C.min_level := L;
+                  end if;
+                  if L > C.max_level AND
+                        (isPressed(C.floorList(L).buttons(Up)) OR 
+                        isPressed(C.floorList(L).buttons(Down)) OR
+                        isPressed(C.buttons(L)))
+                  then
+                        C.max_level := L;
+                  end if;
+            end loop;
+      END;
 End Cart;

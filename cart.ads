@@ -23,8 +23,10 @@ PACKAGE Cart IS
 
       procedure driveCart(C : IN OUT cart);
 
-      procedure pressCartButton(C : IN OUT cart; L : IN OUT integer);
+      procedure pressCartButton(C : IN OUT cart; L : IN OUT integer);      
 
       procedure pressFloorButton(C : IN OUT cart; L : IN OUT integer; D : IN OUT direction);
+
+      procedure calculateMinMax(C : IN OUT cart);
 
 End Cart;

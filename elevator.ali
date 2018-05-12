@@ -21,7 +21,7 @@ RV MAX_SELECT_ALTERNATIVES=2
 RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1+
 
-U elevator%b		elevator.adb		7bb00cfb NE OO SU IL
+U elevator%b		elevator.adb		6b1059b6 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -64,7 +64,7 @@ D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180510025057 cfa08a70
-D cart.ads		20180512070443 aa353bf7
+D cart.ads		20180512072026 ba956eba
 D elevator.adb		20180512065917 6503d439
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
@@ -127,7 +127,7 @@ X 16 a-textio.ads
 X 20 button.ads
 1K9*Button 11e11 22|6w6 6r18
 X 21 cart.ads
-4K9*Cart 30e9 22|8w6 8r16 15r16
+4K9*Cart 32e9 22|8w6 8r16 15r16
 10R12*cart 19e23 22|15r21
 21V16*initCart{10R12} 22|15s29
 24U17*driveCart 22|44s5
