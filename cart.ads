@@ -4,7 +4,7 @@ with button; use button;
 PACKAGE Cart IS
 
       type floor_list is array(-1..8) of floors.floors;
-      type direction is (Up, Down);
+      -- type direction is (Up, Down);
       type floor_buttons is array(-1..8) of button.button;   
 
       type cart is tagged 
@@ -14,17 +14,17 @@ PACKAGE Cart IS
                   min_level : integer;
                   floorList : floor_list;
                   buttons : floor_buttons;
-                  dir : direction;
+                  dir : floors.direction;
                   idle : boolean;
             end record;
     
       function initCart return cart; -- Constructor
       -- function which_level(F : floors) return integer;  FUCK GETTERS
 
-      procedure driveCart(C : cart);
+      procedure driveCart(C : IN OUT cart);
 
-      procedure pressCartButton(C : cart; L : integer);
+      procedure pressCartButton(C : IN OUT cart; L : IN OUT integer);
 
-      procedure pressFloorButton(C : cart; L : integer; D : direction);
+      procedure pressFloorButton(C : IN OUT cart; L : IN OUT integer; D : IN OUT direction);
 
 End Cart;

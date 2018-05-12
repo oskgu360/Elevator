@@ -11,10 +11,7 @@ with cart; use cart;
 procedure elevator is
     type floor_indicator is range -1..8;
     type direction is (Up, Down);
-    dir : direction := Down;
-    floor : floor_indicator := 8;
-    upButton : button.button := initButton;
-    f_one : floors.floors := initFloor(-1);
+
     cart_one : cart.cart := initCart;
 
 
@@ -40,10 +37,10 @@ procedure elevator is
 
     --- MAIN ---
 begin  
-    put(Integer'Image(f_one.level)); new_line;
-    put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
-    press(f_one.buttons(Up));
-    put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
+    -- put(Integer'Image(f_one.level)); new_line;
+    -- put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
+    -- press(f_one.buttons(Up));
+    -- put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
     driveCart(cart_one);
     button_signals.cart_press(1);
     

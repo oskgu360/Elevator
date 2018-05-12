@@ -2,6 +2,7 @@ V "GNAT Lib v4.9"
 P SS ZX
 
 RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_DISPATCHING_CALLS
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
@@ -12,12 +13,13 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U cart%b		cart.adb		b8acee65 NE OO PK KU
+U cart%b		cart.adb		9dab85cf NE OO PK KU
 W ada.tags%s		a-tags.adb		a-tags.ali
+W interfaces%s		interfac.ads		interfac.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W text_io%s		text_io.ads		text_io.ali
 
-U cart%s		cart.ads		984296e5 EE OO PF PK KU
+U cart%s		cart.ads		12ab8b77 EE OO PF PK KU
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 W ada.containers.indefinite_vectors%s
@@ -43,8 +45,8 @@ D a-tags.ads		20111212115430 6c0509d0
 D a-textio.ads		20140129155348 386df5d4
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180510025057 cfa08a70
-D cart.ads		20180510025504 20dc2665
-D cart.adb		20180510025424 dda6eec9
+D cart.ads		20180512070443 aa353bf7
+D cart.adb		20180512070334 724898f1
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
@@ -77,34 +79,46 @@ X 3 a-coinve.ads
 X 7 a-iteint.ads
 24h9 Forward_Iterator
 32h9 Reversible_Iterator<24R9[3|73]>
-X 10 a-textio.ads
-242U14*Put 14|22s19
 X 12 button.ads
 1K9*Button 11e11 13|3w6 3r18 8r45
 3B6*button<boolean> 13|8r52
+7U11*press 14|38s13 44s13
 9V10*initButton{3E6} 14|10s35
 X 13 cart.ads
-4K9*Cart 24l5 24e9 14|3b14 25l5 25t9
-6A12*floor_list(15|6R10)<integer> 13r31
-7E12*direction 7e35 15r25
-7n26*Up{7E12} 14|14r22
-7n30*Down{7E12}
-8A12*floor_buttons(12|3E6)<integer> 14r29
-10R12*cart 17e23 19p16 19r32 22p17 22r31 14|5r32 6r17 19r31
-12r19*level{15|6R10} 14|13m15
-13a19*floorList{6A12} 14|9m21 13r26
-14a19*buttons{8A12} 14|10m21
-15e19*dir{7E12} 14|14m15
-16b19*idle{boolean} 14|15m15 21r18
-19V16*initCart{10R12} 14|5b16 17t10
-22U17*driveCart 22>27 14|19b17 24t10
-22r27 C{10R12} 14|19b27 21r16
+4K9*Cart 30l5 30e9 14|3b14 46l5 46t9
+6A12*floor_list(15|6R10)<integer> 15r31
+8A12*floor_buttons(12|3E6)<integer> 16r29
+10R12*cart 19e23 21p16 21r32 24p17 24r38 26p17 26r44 28p17 28r45 14|5r32
+. 6r17 21r38 35r44 41r45
+12r19*level{15|6R10} 14|13m15 14r30 15r30 29r75
+13i19*max_level{integer} 14|14m15 29r45 29r61
+14i19*min_level{integer} 14|15m15 29r31
+15a19*floorList{6A12} 14|9m21 13r26 44m21
+16a19*buttons{8A12} 14|10m21 38m21
+17e19*dir{15|4E10} 14|16m15
+18b19*idle{boolean} 14|17m15 23r18 24m21 31m21
+21V16*initCart{10R12} 14|5b16 19t10
+24U17*driveCart 24=27 14|21b17 33t10
+24r27 C{10R12} 14|21b27 23r16 24m19 29r29 29r43 29r59 29r73 31m19
+26U17*pressCartButton 26=33 26=50 14|35b17 39t10
+26r33 C{10R12} 14|35b33 38m19 38r19
+26i50 L{integer} 14|35b50 38r29
+28U17*pressFloorButton 28=34 28=51 28=71 14|41b17 45t10
+28r34 C{10R12} 14|41b34 44m19 44r19
+28i51 L{integer} 14|41b51 44r31
+28e71 D{15|4E10} 14|41b71 44r42
 X 14 cart.adb
-6r13 C{13|10R12} 9m19 9r19 10m19 13m13 13r24 14m13 15m13 16r20
+6r13 C{13|10R12} 9m19 9r19 10m19 13m13 13r24 14m13 14r28 15m13 15r28 16m13
+. 17m13 18r20
 8i17 I{integer} 9r31 9r47 10r29
 X 15 floors.ads
-2K9*Floors 13|2w6 2r18 6r42 12r27 15|15e11
+2K9*Floors 13|2w6 2r18 6r42 12r27 17r25 15|15e11
+4E10*direction 13|17r32 28r82 14|41r82 15|4e33
+4n24*Up{4E10} 14|16r22
+5A10*dir_buttons(12|3E6)<4E10>
 6R10*floors 13|6r49 12r34 15|10e19
+8i13*level{integer} 14|14r36 15r36 29r81
+9a13*buttons{5A10} 14|44m34
 12V14*initFloor{6R10} 14|9s37
 X 37 text_io.ads
 24K9*Text_IO=24:29 14|1w6 1r19
