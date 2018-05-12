@@ -1,4 +1,5 @@
 WITH Text_Io; USE Text_Io;
+with Calendar; use Calendar;
 
 PACKAGE BODY Cart IS
 
@@ -19,14 +20,55 @@ PACKAGE BODY Cart IS
       END;
 
       procedure driveCart(C : IN OUT cart) IS
+            operationDelay : time;
+      -- stopped : boolean := true;
       BEGIN
             IF C.idle THEN
                   C.idle := False;
+                  operationDelay := clock;
                   -- TODO: go up and down, add timings (delay until), 
                   -- remove button presses when a floor is visited
                   loop
+                        exit when C.min_level = C.max_level and C.max_level = C.level.level;
+                        
+                        if C.dir = Up AND 
+                        (isPressed(C.floorList(C.level.level).buttons(Up)) OR                          
+                        isPressed(C.buttons(C.level.level))) 
+                        then
+                              setFalse(C.floorList(C.level.level).buttons(Up));
+                              setFalse(C.buttons(C.level.level));
 
-                  exit when C.min_level = C.max_level and C.max_level = C.level.level;
+                              put("Opening doors at floor"); put(Integer'Image(C.level.level));new_line;
+                              operationDelay := operationDelay + 5.0;
+                              delay until operationDelay;
+
+                        elsif C.dir = Down AND
+                        (isPressed(C.floorList(C.level.level).buttons(Down)) OR
+                        isPressed(C.buttons(C.level.level))) 
+                        then
+                              setFalse(C.floorList(C.level.level).buttons(Down));
+                              setFalse(C.buttons(C.level.level));
+
+                              put("Opening doors at floor"); put(Integer'Image(C.level.level));new_line;
+                              operationDelay := operationDelay + 5.0;
+                              delay until operationDelay;
+                        end if;
+
+                        operationDelay := operationDelay + 1.0;
+                        delay until operationDelay;
+
+
+                        if C.level.level < C.max_level AND C.dir = Up then
+                              C.level.level := C.level.level + 1;
+                        elsif C.level.level > C.min_level AND C.dir = Down then
+                              C.level.level := C.level.level - 1;
+                        elsif C.level.level = C.min_level AND C.dir = Down then
+                              C.dir := Up;
+                        elsif C.level.level = C.max_level AND C.dir = Up then
+                              C.dir := Down;      
+                        end if;
+
+                  
                   end loop;
                   C.idle := True;
             END IF;
@@ -34,14 +76,16 @@ PACKAGE BODY Cart IS
 
       procedure pressCartButton(C : IN OUT cart; L : IN OUT integer) IS
       BEGIN
-            -- Tudou: Call pressbutton on C.buttons(L)
             press(C.buttons(L));
+            calculateMinMax(C);
+            driveCart(C);
       END;
 
       procedure pressFloorButton(C : IN OUT cart; L : IN OUT integer; D : IN OUT direction) IS 
       BEGIN 
-            -- Tudou: Call pressbutton on C.floorList(L).buttons(D)
             press(C.floorList(L).buttons(D));
+            calculateMinMax(C);
+            driveCart(C);
       END;
 
       procedure calculateMinMax(C : IN OUT cart) IS 

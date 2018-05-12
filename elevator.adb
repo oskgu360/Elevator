@@ -3,14 +3,12 @@ with Ada.Integer_Text_Io; use Ada.Integer_Text_Io;
 with Ada.Float_Text_Io; use Ada.Float_Text_Io;
 with Ada.Numerics.Float_Random; use Ada.Numerics.Float_Random;
 with Ada.Calendar; use Ada.Calendar;
-with button; use button;
-with floors; use floors;
 with cart; use cart;
+with floors; use floors;
 
 
 procedure elevator is
-    type floor_indicator is range -1..8;
-    type direction is (Up, Down);
+
 
     cart_one : cart.cart := initCart;
 
@@ -18,7 +16,7 @@ procedure elevator is
     --- TASK BUTTONS ----
     task button_signals is 
         entry cart_press (F : in integer);
-        entry floor_press (D : in direction; L : in integer);
+        entry floor_press (D : in floors.direction; L : in integer);
     end button_signals;
     task body button_signals is
     begin
@@ -33,25 +31,51 @@ procedure elevator is
         end select;
     end button_signals; 
 
-    -- Tudou: Create simulation task that accepts input from terminal
-
+    -- simulation task that accepts input from terminal
+    PROCEDURE Inside_Elevator IS
+        button : String (1..80);
+        Length : Integer;
+        level : Integer;
+    BEGIN   
+        Put ("Press which button?> ");
+        Get_Line (button, Length);
+        New_Line;
+        Level := Integer'Value (button (1..Length));
+        Put (Integer'Image (level));
+        Put (", that's an integer!");
+        New_Line;
+    end inside_elevator;
+    
+    procedure Get_Input is
+        Level: String (1..80);
+        direction: String (1..80);
+        Length : Integer;
+        LengthDir : Integer;
+        LevelInt : Integer;
+    begin    
+        Put ("What floor are you on?> ");
+        Get_Line (level, Length);
+        New_Line;  
+        LevelInt := Integer'Value (Level (1..Length));
+        Put (Integer'Image (levelInt));
+        Put (", that's an integer!");
+        New_Line;
+        
+        Put_line ("Do you want to go up or down?");
+        Get_Line (direction, LengthDir);
+        New_Line;
+        IF Direction (1..LengthDir) = "up" THEN
+            Put_line ("Going up up up up uh up");
+        ELSIF Direction (1..LengthDir) = "down" THEN
+            Put_line ("Shit is going down!");
+        end if;
+    end Get_Input;
     --- MAIN ---
 begin  
-    -- put(Integer'Image(f_one.level)); new_line;
-    -- put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
-    -- press(f_one.buttons(Up));
-    -- put(Boolean'Image(isPressed(f_one.buttons(Up)))); new_line;
     driveCart(cart_one);
     button_signals.cart_press(1);
-    
-    -- loop
-    --     put(Boolean'Image(isPressed(upButton))); new_line;
-    --     press(upButton);
-        
-    --     put(Integer'Image(Integer(floor)));put(" aaaaaaaaaaaaaaaaaaah");new_line;
-    --     exit when floor = -1;
-    --     floor := floor -1;        
-    -- end loop;
+    Get_Input;
+    Inside_Elevator;  
     new_line; put("splat");new_line;
     abort button_signals;
 end elevator;

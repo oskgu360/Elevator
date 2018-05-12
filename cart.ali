@@ -2,8 +2,11 @@ V "GNAT Lib v4.9"
 P SS ZX
 
 RN
+RV NO_CALENDAR
+RV NO_DELAY
 RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_DISPATCHING_CALLS
+RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_IMPLICIT_LOOPS
@@ -13,13 +16,16 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U cart%b		cart.adb		efc45d61 NE OO PK KU
+U cart%b		cart.adb		9a462568 NE OO PK KU
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
+W calendar%s		calendar.ads		calendar.ali
 W interfaces%s		interfac.ads		interfac.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W text_io%s		text_io.ads		text_io.ali
 
-U cart%s		cart.ads		020bde3a EE OO PF PK KU
+U cart%s		cart.ads		b5f7165b EE OO PF PK KU
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 W ada.containers.indefinite_vectors%s
@@ -34,6 +40,8 @@ W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
 D ada.ads		20070406091342 3ffc8e18
+D a-calend.ads		20120515092648 d86d6c8c
+D a-caldel.ads		20140120152337 9f20b83d
 D a-contai.ads		20101025135029 61e5e089
 D a-coinve.ads		20130411133353 cfa7d9ff
 D a-except.ads		20140129161953 f86a4103
@@ -44,9 +52,10 @@ D a-stream.ads		20140122164720 1a984740
 D a-tags.ads		20111212115430 6c0509d0
 D a-textio.ads		20140129155348 386df5d4
 D a-unccon.ads		20070406091342 f9eb8f06
-D button.ads		20180510025057 cfa08a70
+D button.ads		20180512080216 785c4211
+D calendar.ads		20070406091342 2cb525cd
 D cart.ads		20180512072026 ba956eba
-D cart.adb		20180512072104 10871512
+D cart.adb		20180512080742 49b048d6
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
 D i-cstrea.ads		20130412125801 8128536b
@@ -56,6 +65,7 @@ D s-exctab.ads		20140225151139 54135002
 D s-ficobl.ads		20120709130952 55a71d43
 D s-finmas.ads		20140225151139 814daec4
 D s-finroo.ads		20120426095924 4ff27390
+D s-imgint.ads		20090409150019 02dbe0c2
 D s-parame.ads		20140225151139 ab8cb46a
 D s-pooglo.ads		20110804083314 542f33d0
 D s-secsta.ads		20140225151139 86a2856d
@@ -71,61 +81,84 @@ D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
 D text_io.ads		20070406091342 45d626c9
 X 1 ada.ads
-16K9*Ada 19e8 13|1r6 1r45
-X 2 a-contai.ads
-16K13*Containers 24e19 13|1r10 1r49
-X 3 a-coinve.ads
-45k24*Indefinite_Vectors 486e38 13|1w21
-X 7 a-iteint.ads
+16K9*Ada 19e8 16|1r6 1r45
+X 2 a-calend.ads
+38I9*Time<200I9> 17|23r30
+52V13*Clock{38I9} 17|28s37
+94V14*"+"{38I9} 17|42s64 53s64 57s58
+200I9 Time_Rep<long_integer>
+X 4 a-contai.ads
+16K13*Containers 24e19 16|1r10 1r49
+X 5 a-coinve.ads
+45k24*Indefinite_Vectors 486e38 16|1w21
+X 9 a-iteint.ads
 24h9 Forward_Iterator
-32h9 Reversible_Iterator<24R9[3|73]>
-X 12 button.ads
-1K9*Button 11e11 13|3w6 3r18 8r45
-3B6*button<boolean> 13|8r52
-5V10*isPressed{boolean} 14|52s26 53s25 54s25 59s26 60s25 61s25
-7U11*press 14|38s13 44s13
-9V10*initButton{3E6} 14|10s35
-X 13 cart.ads
-4K9*Cart 32l5 32e9 14|3b14 67l5 67t9
-6A12*floor_list(15|6R10)<integer> 15r31
-8A12*floor_buttons(12|3E6)<integer> 16r29
+32h9 Reversible_Iterator<24R9[5|73]>
+X 12 a-textio.ads
+166U14*New_Line 17|41s96 52s96
+242U14*Put 17|41s31 41s62 52s31 52s62
+X 14 button.ads
+1K9*Button 13e11 16|3w6 3r18 8r45
+3B6*button<boolean> 16|8r52
+5V10*isPressed{boolean} 17|35s26 36s25 46s26 47s25 96s26 97s25 98s25 103s26
+. 104s25 105s25
+7U11*press 17|79s13 86s13
+9U11*setFalse 17|38s31 39s31 49s31 50s31
+11V10*initButton{3E6} 17|11s35
+X 15 calendar.ads
+18K9*Calendar=18:30 17|2w6 2r20
+X 16 cart.ads
+4K9*Cart 32l5 32e9 17|4b14 111l5 111t9
+6A12*floor_list(18|6R10)<integer> 15r31
+8A12*floor_buttons(14|3E6)<integer> 16r29
 10R12*cart 19e23 21p16 21r32 24p17 24r38 26p17 26r44 28p17 28r45 30p17 30r44
-. 14|5r32 6r17 21r38 35r44 41r45 47r44
-12r19*level{15|6R10} 14|13m15 14r30 15r30 29r75
-13i19*max_level{integer} 14|14m15 29r45 29r61 58r28 63m27
-14i19*min_level{integer} 14|15m15 29r31 51r28 56m27
-15a19*floorList{6A12} 14|9m21 13r26 44m21 52r38 53r37 59r38 60r37
-16a19*buttons{8A12} 14|10m21 38m21 54r37 61r37
-17e19*dir{15|4E10} 14|16m15
-18b19*idle{boolean} 14|17m15 23r18 24m21 31m21
-21V16*initCart{10R12} 14|5b16 19t10
-24U17*driveCart 24=27 14|21b17 33t10
-24r27 C{10R12} 14|21b27 23r16 24m19 29r29 29r43 29r59 29r73 31m19
-26U17*pressCartButton 26=33 26=50 14|35b17 39t10
-26r33 C{10R12} 14|35b33 38m19 38r19
-26i50 L{integer} 14|35b50 38r29
-28U17*pressFloorButton 28=34 28=51 28=71 14|41b17 45t10
-28r34 C{10R12} 14|41b34 44m19 44r19
-28i51 L{integer} 14|41b51 44r31
-28e71 D{15|4E10} 14|41b71 44r42
-30U17*calculateMinMax 30=33 14|47b17 66t10
-30r33 C{10R12} 14|47b33 51r26 52r36 53r35 54r35 56m25 58r26 59r36 60r35 61r35
-. 63m25
-X 14 cart.adb
-6r13 C{13|10R12} 9m19 9r19 10m19 13m13 13r24 14m13 14r28 15m13 15r28 16m13
-. 17m13 18r20
-8i17 I{integer} 9r31 9r47 10r29
-50i17 L{integer} 51r22 52r48 53r47 54r45 56r40 58r22 59r48 60r47 61r45 63r40
-X 15 floors.ads
-2K9*Floors 13|2w6 2r18 6r42 12r27 17r25 15|15e11
-4E10*direction 13|17r32 28r82 14|41r82 15|4e33
-4n24*Up{4E10} 14|16r22 52r59 59r59
-4n28*Down{4E10} 14|53r58 60r58
-5A10*dir_buttons(12|3E6)<4E10>
-6R10*floors 13|6r49 12r34 15|10e19
-8i13*level{integer} 14|14r36 15r36 29r81
-9a13*buttons{5A10} 14|44m34 52r51 53r50 59r51 60r50
-12V14*initFloor{6R10} 14|9s37
-X 37 text_io.ads
-24K9*Text_IO=24:29 14|1w6 1r19
+. 17|6r32 7r17 22r38 77r44 84r45 91r44
+12r19*level{18|6R10} 17|14m15 15r30 16r30 32r81 35r50 36r47 38r54 39r52 41r82
+. 46r50 47r47 49r54 50r52 52r82 61r30 62m33 62r50 63r33 64m33 64r50 65r33
+. 67r33
+13i19*max_level{integer} 17|15m15 32r51 32r67 61r46 67r49 102r28 107m27
+14i19*min_level{integer} 17|16m15 32r37 63r49 65r49 95r28 100m27
+15a19*floorList{6A12} 17|10m21 14r26 35r38 38m42 46r38 49m42 86m21 96r38
+. 97r37 103r38 104r37
+16a19*buttons{8A12} 17|11m21 36r37 39m42 47r37 50m42 79m21 98r37 105r37
+17e19*dir{18|4E10} 17|17m15 34r30 45r33 61r62 63r65 65r65 66m33 67r65 68m33
+18b19*idle{boolean} 17|18m15 26r18 27m21 73m21
+21V16*initCart{10R12} 17|6b16 20t10
+24U17*driveCart 24=27 17|22b17 75t10 81s13 88s13
+24r27 C{10R12} 17|22b27 26r16 27m19 32r35 32r49 32r65 32r79 34r28 35r36 35r48
+. 36r35 36r45 38m40 38r40 38r52 39m40 39r40 39r50 41r80 45r31 46r36 46r48
+. 47r35 47r45 49m40 49r40 49r52 50m40 50r40 50r50 52r80 61r28 61r44 61r60
+. 62m31 62r48 63r31 63r47 63r63 64m31 64r48 65r31 65r47 65r63 66m31 67r31
+. 67r47 67r63 68m31 73m19
+26U17*pressCartButton 26=33 26=50 17|77b17 82t10
+26r33 C{10R12} 17|77b33 79m19 79r19 80m29 81m23
+26i50 L{integer} 17|77b50 79r29
+28U17*pressFloorButton 28=34 28=51 28=71 17|84b17 89t10
+28r34 C{10R12} 17|84b34 86m19 86r19 87m29 88m23
+28i51 L{integer} 17|84b51 86r31
+28e71 D{18|4E10} 17|84b71 86r42
+30U17*calculateMinMax 30=33 17|80s13 87s13 91b17 110t10
+30r33 C{10R12} 17|91b33 95r26 96r36 97r35 98r35 100m25 102r26 103r36 104r35
+. 105r35 107m25
+X 17 cart.adb
+7r13 C{16|10R12} 10m19 10r19 11m19 14m13 14r24 15m13 15r28 16m13 16r28 17m13
+. 18m13 19r20
+9i17 I{integer} 10r31 10r47 11r29
+23i13 operationDelay{2|38I9} 28m19 42m31 42r49 43r43 53m31 53r49 54r43 57m25
+. 57r43 58r37
+94i17 L{integer} 95r22 96r48 97r47 98r45 100r40 102r22 103r48 104r47 105r45
+. 107r40
+X 18 floors.ads
+2K9*Floors 16|2w6 2r18 6r42 12r27 17r25 18|15e11
+4E10*direction 16|17r32 28r82 17|84r82 18|4e33
+4n24*Up{4E10} 17|17r22 34r36 35r71 38r75 61r68 66r40 67r71 96r59 103r59
+4n28*Down{4E10} 17|45r39 46r71 49r75 63r71 65r71 68r40 97r58 104r58
+5A10*dir_buttons(14|3E6)<4E10>
+6R10*floors 16|6r49 12r34 18|10e19
+8i13*level{integer} 17|15r36 16r36 32r87 35r56 36r53 38r60 39r58 41r88 46r56
+. 47r53 49r60 50r58 52r88 61r36 62m39 62r56 63r39 64m39 64r56 65r39 67r39
+9a13*buttons{5A10} 17|35r63 38m67 46r63 49m67 86m34 96r51 97r50 103r51 104r50
+12V14*initFloor{6R10} 17|10s37
+X 41 text_io.ads
+24K9*Text_IO=24:29 17|1w6 1r19
 

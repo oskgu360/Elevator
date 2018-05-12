@@ -12,12 +12,12 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U floors%b		floors.adb		ffc45b73 NE OO PK KU
+U floors%b		floors.adb		48389312 NE OO PK KU
 W button%s		button.adb		button.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W text_io%s		text_io.ads		text_io.ali
 
-U floors%s		floors.ads		7739697f EE OO PF PK KU
+U floors%s		floors.ads		c0c5a11e EE OO PF PK KU
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
@@ -35,7 +35,7 @@ D a-stream.ads		20140122164720 1a984740
 D a-tags.ads		20111212115430 6c0509d0
 D a-textio.ads		20140129155348 386df5d4
 D a-unccon.ads		20070406091342 f9eb8f06
-D button.ads		20180510025057 cfa08a70
+D button.ads		20180512080216 785c4211
 D floors.ads		20180510022303 b899e30f
 D floors.adb		20180510025202 cd2b14c5
 D interfac.ads		20140225151838 69adb1b9
@@ -61,9 +61,9 @@ D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
 D text_io.ads		20070406091342 45d626c9
 X 9 button.ads
-1K9*Button 11e11 10|1w6 1r18 5r45 11|2w6 2r18
+1K9*Button 13e11 10|1w6 1r18 5r45 11|2w6 2r18
 3B6*button<boolean> 10|5r52
-9V10*initButton{3E6} 11|10s26 11s28
+11V10*initButton{3E6} 11|10s26 11s28
 X 10 floors.ads
 2K9*Floors 15l5 15e11 11|4b14 15l5 15t11
 4E10*direction 4e33 5r31

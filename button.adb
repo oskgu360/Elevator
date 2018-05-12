@@ -10,6 +10,11 @@ PACKAGE BODY Button IS
         return Boolean(B);
     end;
 
+    procedure setFalse(B : IN OUT button) IS
+    BEGIN
+        B := False;
+    END;
+
     function initButton return button is
     B : button;
     BEGIN 
