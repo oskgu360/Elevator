@@ -19,17 +19,21 @@ PACKAGE BODY Cart IS
             RETURN C;
       END;
 
-      procedure driveCart(C : IN OUT cart) IS
+      task type driveCartTask is
+            entry Construct(Ca : IN OUT cart);
+      end driveCartTask;
+
+      task body driveCartTask is
             operationDelay : time;
-      -- stopped : boolean := true;
+            C : cart;
       BEGIN
-            IF C.idle THEN
-                  C.idle := False;
+            accept Construct(Ca : IN OUT cart) do
+                  C := Ca;
                   operationDelay := clock;
                   -- TODO: go up and down, add timings (delay until), 
                   -- remove button presses when a floor is visited
                   loop
-                        exit when C.min_level = C.max_level and C.max_level = C.level.level;
+                        put(" Min floor: ");put(Integer'Image(C.min_level));put(" Max floor: ");put(Integer'Image(C.max_level)); put(" Current floor: ");put(Integer'Image(C.level.level));new_line;
                         
                         if C.dir = Up AND 
                         (isPressed(C.floorList(C.level.level).buttons(Up)) OR                          
@@ -37,10 +41,12 @@ PACKAGE BODY Cart IS
                         then
                               setFalse(C.floorList(C.level.level).buttons(Up));
                               setFalse(C.buttons(C.level.level));
+                              calculateMinMax(C); -- Calculate new min max
 
-                              put("Opening doors at floor"); put(Integer'Image(C.level.level));new_line;
+                              put("Opening doors at floor "); put(Integer'Image(C.level.level));new_line;
                               operationDelay := operationDelay + 5.0;
                               delay until operationDelay;
+                              put("Closing doors at floor "); put(Integer'Image(C.level.level));new_line;
 
                         elsif C.dir = Down AND
                         (isPressed(C.floorList(C.level.level).buttons(Down)) OR
@@ -48,10 +54,12 @@ PACKAGE BODY Cart IS
                         then
                               setFalse(C.floorList(C.level.level).buttons(Down));
                               setFalse(C.buttons(C.level.level));
+                              calculateMinMax(C); -- Calculate new min max
 
-                              put("Opening doors at floor"); put(Integer'Image(C.level.level));new_line;
+                              put("Opening doors at floor "); put(Integer'Image(C.level.level));new_line;
                               operationDelay := operationDelay + 5.0;
                               delay until operationDelay;
+                              put("Closing doors at floor "); put(Integer'Image(C.level.level));new_line;
                         end if;
 
                         operationDelay := operationDelay + 1.0;
@@ -62,26 +70,40 @@ PACKAGE BODY Cart IS
                               C.level.level := C.level.level + 1;
                         elsif C.level.level > C.min_level AND C.dir = Down then
                               C.level.level := C.level.level - 1;
-                        elsif C.level.level = C.min_level AND C.dir = Down then
+                        elsif (C.level.level = C.min_level OR C.level.level < C.min_level)  AND C.dir = Down then
                               C.dir := Up;
-                        elsif C.level.level = C.max_level AND C.dir = Up then
+                              put("Changing direction to up at floor "); put(Integer'Image(C.level.level));new_line;
+                        elsif (C.level.level = C.max_level OR C.level.level > C.max_level)  AND C.dir = Up then
                               C.dir := Down;      
+                              put("Changing direction to down at floor "); put(Integer'Image(C.level.level));new_line;
                         end if;
 
-                  
+                        exit when C.min_level = C.max_level and C.max_level = C.level.level;
                   end loop;
+                  put("No more destinations, going idle at floor ");put(Integer'Image(C.level.level));new_line;
                   C.idle := True;
+            end Construct;
+      END driveCartTask;
+
+
+      procedure driveCart(C : IN OUT cart) IS
+            -- type Task_Handle is access driveCartTask;  -- used to point to the task
+            drive : driveCartTask;
+      BEGIN
+            IF C.idle THEN
+                  C.idle := False;
+                  drive.Construct(C); 
             END IF;
       END;
 
-      procedure pressCartButton(C : IN OUT cart; L : IN OUT integer) IS
+      procedure pressCartButton(C : IN OUT cart; L : IN integer) IS
       BEGIN
             press(C.buttons(L));
             calculateMinMax(C);
             driveCart(C);
       END;
 
-      procedure pressFloorButton(C : IN OUT cart; L : IN OUT integer; D : IN OUT direction) IS 
+      procedure pressFloorButton(C : IN OUT cart; L : IN integer; D : IN direction) IS 
       BEGIN 
             press(C.floorList(L).buttons(D));
             calculateMinMax(C);
@@ -91,6 +113,8 @@ PACKAGE BODY Cart IS
       procedure calculateMinMax(C : IN OUT cart) IS 
       -- Calculate new min and max after change in button presses --
       BEGIN
+            C.min_level := 8;
+            C.max_level := -1;
             for L in -1..8 loop
                   if L < C.min_level AND 
                         (isPressed(C.floorList(L).buttons(Up)) OR 
@@ -107,5 +131,10 @@ PACKAGE BODY Cart IS
                         C.max_level := L;
                   end if;
             end loop;
+
+            if C.min_level = 8 AND C.max_level = -1 then
+                  C.min_level := C.level.level;
+                  C.max_level := C.level.level;
+            end if;
       END;
 End Cart;

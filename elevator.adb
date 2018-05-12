@@ -22,11 +22,11 @@ procedure elevator is
     begin
         select
             accept cart_press(F : in integer) do
-                put(Integer'Image(F)); -- Tudou: Call pressbutton on cart
+                pressCartButton(cart_one, F); 
             end cart_press;
         or  
             accept floor_press(D : in direction; L : in integer) do
-                put(Integer'Image(L)); -- Tudou: Call pressbutton on cart
+                pressFloorButton(cart_one, L, D);
             end floor_press;
         end select;
     end button_signals; 
@@ -72,8 +72,8 @@ procedure elevator is
     end Get_Input;
     --- MAIN ---
 begin  
-    driveCart(cart_one);
-    button_signals.cart_press(1);
+    button_signals.cart_press(8);
+    button_signals.floor_press(Up, -1);
     Get_Input;
     Inside_Elevator;  
     new_line; put("splat");new_line;

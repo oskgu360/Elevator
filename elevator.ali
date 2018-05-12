@@ -21,7 +21,7 @@ RV MAX_SELECT_ALTERNATIVES=2
 RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1+
 
-U elevator%b		elevator.adb		4a03a37b NE OO SU IL
+U elevator%b		elevator.adb		70ecac65 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -64,8 +64,8 @@ D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180512080216 785c4211
-D cart.ads		20180512072026 ba956eba
-D elevator.adb		20180512081527 8bb0a484
+D cart.ads		20180512082342 2dc5075f
+D elevator.adb		20180512084958 260fc27f
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
 D i-c.ads		20110801143639 5421119b
@@ -124,23 +124,24 @@ X 12 a-nuflra.ads
 41K22*Float_Random 72e30 22|4w19 4r50
 X 16 a-textio.ads
 166U14*New_Line 22|42s9 46s9 58s9 62s9 66s9 79s5 79s28
-242U14*Put 22|25s17 29s17 40s9 44s9 45s9 56s9 60s9 61s9 79s15
+242U14*Put 22|40s9 44s9 45s9 56s9 60s9 61s9 79s15
 249U14*Get_Line 22|41s9 57s9 65s9
 263U14*Put_Line 22|64s9 68s13 70s13
 X 21 cart.ads
 4K9*Cart 32e9 22|6w6 6r16 13r16
 10R12*cart 19e23 22|13r21
 21V16*initCart{10R12} 22|13s29
-24U17*driveCart 22|75s5
+26U17*pressCartButton 22|25s17
+28U17*pressFloorButton 22|29s17
 X 22 elevator.adb
 10U11*elevator 10b11 81l5 81t13
-13r5 cart_one{21|10R12} 75m15 75r15
-17t10 button_signals 21b15 32l9 32t23 76r5 80r11
-18Y15 cart_press 18>27 24b20 26l17 26t27 76s20
-18i27 F{integer} 25r35
-19Y15 floor_press 19>28 19>53 28b20 30l17 30t28
-19e28 D{23|4E10}
-19i53 L{integer} 29r35
+13r5 cart_one{21|10R12} 25m33 25r33 29m34 29r34
+17t10 button_signals 21b15 32l9 32t23 75r5 76r5 80r11
+18Y15 cart_press 18>27 24b20 26l17 26t27 75s20
+18i27 F{integer} 25r43
+19Y15 floor_press 19>28 19>53 28b20 30l17 30t28 76s20
+19e28 D{23|4E10} 29r47
+19i53 L{integer} 29r44
 24i31 F{integer}
 28e32 D{23|4E10}
 28i50 L{integer}
@@ -157,6 +158,7 @@ X 22 elevator.adb
 X 23 floors.ads
 2K9*Floors 22|7w6 7r18 19r35 23|15e11
 4E10*direction 22|19r42 28r39 23|4e33
+4n24*Up{4E10} 22|76r32
 X 45 s-stausa.ads
 203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
 268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
