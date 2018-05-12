@@ -8,8 +8,10 @@ RV NO_CALENDAR
 RV NO_DELAY
 RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_DYNAMIC_CODE
+RV NO_RELATIVE_DELAY
 RV NO_SECONDARY_STACK
 RV NO_SELECT_STATEMENTS
 RV NO_STANDARD_STORAGE_POOLS
@@ -21,9 +23,10 @@ RV MAX_SELECT_ALTERNATIVES=2
 RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1+
 
-U elevator%b		elevator.adb		70ecac65 NE OO SU IL
+U elevator%b		elevator.adb		5fe722ea NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
@@ -46,6 +49,7 @@ W text_io%s		text_io.ads		text_io.ali
 
 D ada.ads		20070406091342 3ffc8e18
 D a-calend.ads		20120515092648 d86d6c8c
+D a-caldel.ads		20140120152337 9f20b83d
 D a-contai.ads		20101025135029 61e5e089
 D a-coinve.ads		20130411133353 cfa7d9ff
 D a-except.ads		20140129161953 f86a4103
@@ -64,8 +68,8 @@ D a-tiflio.ads		20090409150019 56fbda09
 D a-tiinio.ads		20090409150019 aa04e5d6
 D a-unccon.ads		20070406091342 f9eb8f06
 D button.ads		20180512080216 785c4211
-D cart.ads		20180512082342 2dc5075f
-D elevator.adb		20180512084958 260fc27f
+D cart.ads		20180512110747 2dc5075f
+D elevator.adb		20180512115216 09044cf0
 D floors.ads		20180510022303 b899e30f
 D interfac.ads		20140225151838 69adb1b9
 D i-c.ads		20110801143639 5421119b
@@ -108,60 +112,63 @@ D s-valint.ads		20090409150019 48a52a3f
 D s-wchcon.ads		20140225151139 1b7d22d2
 D text_io.ads		20070406091342 45d626c9
 X 1 ada.ads
-16K9*Ada 19e8 22|2r6 2r31 3r6 3r29 4r6 4r37 5r6 5r24
+16K9*Ada 19e8 23|2r6 2r31 3r6 3r29 4r6 4r37 5r6 5r24
 X 2 a-calend.ads
-36K13*Calendar 375e17 22|5w10 5r28
-X 7 a-flteio.ads
-20K13*Float_Text_IO[17|45] 22|3w10 3r33
-X 8 a-inteio.ads
-18K13*Integer_Text_IO[18|45] 22|2w10 2r35
-X 10 a-iteint.ads
+36K13*Calendar 375e17 23|5w10 5r28
+X 8 a-flteio.ads
+20K13*Float_Text_IO[18|45] 23|3w10 3r33
+X 9 a-inteio.ads
+18K13*Integer_Text_IO[19|45] 23|2w10 2r35
+X 11 a-iteint.ads
 24h9 Forward_Iterator
-32h9 Reversible_Iterator<24R9[4|73]>
-X 11 a-numeri.ads
-16K13*Numerics 32e17 22|4r10 4r41
-X 12 a-nuflra.ads
-41K22*Float_Random 72e30 22|4w19 4r50
-X 16 a-textio.ads
-166U14*New_Line 22|42s9 46s9 58s9 62s9 66s9 79s5 79s28
-242U14*Put 22|40s9 44s9 45s9 56s9 60s9 61s9 79s15
-249U14*Get_Line 22|41s9 57s9 65s9
-263U14*Put_Line 22|64s9 68s13 70s13
-X 21 cart.ads
-4K9*Cart 32e9 22|6w6 6r16 13r16
-10R12*cart 19e23 22|13r21
-21V16*initCart{10R12} 22|13s29
-26U17*pressCartButton 22|25s17
-28U17*pressFloorButton 22|29s17
-X 22 elevator.adb
-10U11*elevator 10b11 81l5 81t13
-13r5 cart_one{21|10R12} 25m33 25r33 29m34 29r34
-17t10 button_signals 21b15 32l9 32t23 75r5 76r5 80r11
-18Y15 cart_press 18>27 24b20 26l17 26t27 75s20
-18i27 F{integer} 25r43
-19Y15 floor_press 19>28 19>53 28b20 30l17 30t28 76s20
-19e28 D{23|4E10} 29r47
-19i53 L{integer} 29r44
-24i31 F{integer}
-28e32 D{23|4E10}
-28i50 L{integer}
-35U15 Inside_Elevator 35b15 47l9 47t24 78s5
-36a9 button{string} 41m19 43r33
-37i9 Length{integer} 41m27 43r44
-38i9 level{integer} 43m9 44r29
-49U15 Get_Input 49b15 72l9 72t18 77s5
-50a9 Level{string} 57m19 59r36
-51a9 direction{string} 65m19 67r12 69r15
-52i9 Length{integer} 57m26 59r46
-53i9 LengthDir{integer} 65m30 67r26 69r29
-54i9 LevelInt{integer} 59m9 60r29
-X 23 floors.ads
-2K9*Floors 22|7w6 7r18 19r35 23|15e11
-4E10*direction 22|19r42 28r39 23|4e33
-4n24*Up{4E10} 22|76r32
-X 45 s-stausa.ads
+32h9 Reversible_Iterator<24R9[5|73]>
+X 12 a-numeri.ads
+16K13*Numerics 32e17 23|4r10 4r41
+X 13 a-nuflra.ads
+41K22*Float_Random 72e30 23|4w19 4r50
+X 17 a-textio.ads
+166U14*New_Line 23|44s9 48s9 60s9 64s9 68s9 103s5 103s28
+242U14*Put 23|42s9 46s9 47s9 58s9 62s9 63s9 103s15
+249U14*Get_Line 23|43s9 59s9 67s9
+263U14*Put_Line 23|66s9 70s13 72s13
+X 22 cart.ads
+4K9*Cart 34e9 23|6w6 6r16 13r16
+10R12*cart 19e23 23|13r21
+21V16*initCart{10R12} 23|13s29
+24U17*driveCart 23|90s13
+26U17*pressCartButton 23|26s21
+28U17*pressFloorButton 23|30s21
+X 23 elevator.adb
+10U11*elevator 10b11 106l5 106t13
+13r5 cart_one{22|10R12} 26m37 26r37 30m38 30r38 90m23 90r23
+17t10 button_signals 21b15 34l9 34t23 80r9 82r9 83r9 104r11
+18Y15 cart_press 18>27 25b24 27l21 27t31 80s24 83s24
+18i27 F{integer} 26r47
+19Y15 floor_press 19>28 19>53 29b24 31l21 31t32 82s24
+19e28 D{24|4E10} 30r51
+19i53 L{integer} 30r48
+25i35 F{integer}
+29e36 D{24|4E10}
+29i54 L{integer}
+37U15 Inside_Elevator 37b15 49l9 49t24
+38a9 button{string} 43m19 45r33
+39i9 Length{integer} 43m27 45r44
+40i9 level{integer} 45m9 46r29
+51U15 Get_Input 51b15 74l9 74t18
+52a9 Level{string} 59m19 61r36
+53a9 direction{string} 67m19 69r12 71r15
+54i9 Length{integer} 59m26 61r46
+55i9 LengthDir{integer} 67m30 69r26 71r29
+56i9 LevelInt{integer} 61m9 62r29
+77t10 sim 78b15 84l9 84t12
+86t10 driveC 87b15 93l9 93t15
+X 24 floors.ads
+2K9*Floors 23|7w6 7r18 19r35 24|15e11
+4E10*direction 23|19r42 29r43 24|4e33
+4n24*Up{4E10} 23|82r36
+X 46 s-stausa.ads
 203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
 268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
-X 63 text_io.ads
-24K9*Text_IO=24:29 22|1w6 1r19
+X 64 text_io.ads
+24K9*Text_IO=24:29 23|1w6 1r19
 

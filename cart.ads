@@ -29,4 +29,6 @@ PACKAGE Cart IS
 
       procedure calculateMinMax(C : IN OUT cart);
 
+      -- procedure destructCart;
+
 End Cart;

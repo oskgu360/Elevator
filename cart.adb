@@ -2,7 +2,19 @@ WITH Text_Io; USE Text_Io;
 with Calendar; use Calendar;
 
 PACKAGE BODY Cart IS
+      -- task semaphore is
+   	-- entry P;			-- Dijkstra’s terminology
+   	-- entry V;			-- from the Dutch	
+	-- end semaphore;
+	-- task body semaphore is
+	-- 	begin
+	-- 	loop
+	-- 		accept P;	-- won’t accept another P until a caller asks for V
+	-- 		accept V;
+	-- 	end loop;
+	-- end semaphore;
 
+   
       function initCart return cart IS
             C : cart;
       BEGIN
@@ -34,7 +46,8 @@ PACKAGE BODY Cart IS
                   -- remove button presses when a floor is visited
                   loop
                         put(" Min floor: ");put(Integer'Image(C.min_level));put(" Max floor: ");put(Integer'Image(C.max_level)); put(" Current floor: ");put(Integer'Image(C.level.level));new_line;
-                        
+                        -- semaphore.P;
+                        -- put_line("DRIVE: Claiming semaphore");
                         if C.dir = Up AND 
                         (isPressed(C.floorList(C.level.level).buttons(Up)) OR                          
                         isPressed(C.buttons(C.level.level))) 
@@ -77,7 +90,8 @@ PACKAGE BODY Cart IS
                               C.dir := Down;      
                               put("Changing direction to down at floor "); put(Integer'Image(C.level.level));new_line;
                         end if;
-
+                        -- semaphore.V;
+                        -- put_line("DRIVE: Releasing semaphore");
                         exit when C.min_level = C.max_level and C.max_level = C.level.level;
                   end loop;
                   put("No more destinations, going idle at floor ");put(Integer'Image(C.level.level));new_line;
@@ -95,19 +109,32 @@ PACKAGE BODY Cart IS
                   drive.Construct(C); 
             END IF;
       END;
+      
 
       procedure pressCartButton(C : IN OUT cart; L : IN integer) IS
       BEGIN
+            -- put_line("PRESS: Waiting semaphore");
+            -- semaphore.P;
+            -- put_line("PRESS: Claiming semaphore");
             press(C.buttons(L));
             calculateMinMax(C);
-            driveCart(C);
+            put(" Min floor: ");put(Integer'Image(C.min_level));put(" Max floor: ");put(Integer'Image(C.max_level)); put(" Current floor: ");put(Integer'Image(C.level.level));new_line;
+            -- semaphore.V;
+            -- put_line("PRESS: Realeasing semaphore");
+            -- driveCart(C);
       END;
 
       procedure pressFloorButton(C : IN OUT cart; L : IN integer; D : IN direction) IS 
       BEGIN 
+            -- put_line("PRESS: Waiting semaphore");
+            -- semaphore.P;
+            -- put_line("PRESS: Claiming semaphore");
             press(C.floorList(L).buttons(D));
             calculateMinMax(C);
-            driveCart(C);
+            put(" Min floor: ");put(Integer'Image(C.min_level));put(" Max floor: ");put(Integer'Image(C.max_level)); put(" Current floor: ");put(Integer'Image(C.level.level));new_line;    
+            -- semaphore.V;
+            -- put_line("PRESS: Realeasing semaphore");
+            -- driveCart(C);
       END;
 
       procedure calculateMinMax(C : IN OUT cart) IS 
@@ -137,4 +164,9 @@ PACKAGE BODY Cart IS
                   C.max_level := C.level.level;
             end if;
       END;
+
+      -- procedure destructCart is 
+      -- BEGIN
+      --       abort semaphore;
+      -- END;
 End Cart;

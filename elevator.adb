@@ -20,15 +20,17 @@ procedure elevator is
     end button_signals;
     task body button_signals is
     begin
-        select
-            accept cart_press(F : in integer) do
-                pressCartButton(cart_one, F); 
-            end cart_press;
-        or  
-            accept floor_press(D : in direction; L : in integer) do
-                pressFloorButton(cart_one, L, D);
-            end floor_press;
-        end select;
+        loop
+            select
+                accept cart_press(F : in integer) do
+                    pressCartButton(cart_one, F); 
+                end cart_press;
+            or  
+                accept floor_press(D : in direction; L : in integer) do
+                    pressFloorButton(cart_one, L, D);
+                end floor_press;
+            end select;
+        end loop;
     end button_signals; 
 
     -- simulation task that accepts input from terminal
@@ -70,12 +72,35 @@ procedure elevator is
             Put_line ("Shit is going down!");
         end if;
     end Get_Input;
+
+    -- SIM --
+    task sim;
+    task body sim is
+    begin
+        button_signals.cart_press(8);
+        -- button_signals.cart_press(-1);
+        button_signals.floor_press(Up, -1);
+        button_signals.cart_press(4);
+    end sim;
+
+    task driveC;
+    task body driveC is
+    begin
+        loop
+            driveCart(cart_one);
+            delay 1.0;
+        end loop;
+    end driveC;
     --- MAIN ---
 begin  
-    button_signals.cart_press(8);
-    button_signals.floor_press(Up, -1);
-    Get_Input;
-    Inside_Elevator;  
+    -- button_signals.cart_press(8);
+    -- button_signals.cart_press(-1);
+    -- button_signals.floor_press(Up, -1);
+    -- Get_Input;
+
+    -- Inside_Elevator;
+    delay 30.0;  
     new_line; put("splat");new_line;
     abort button_signals;
+    -- destructCart;
 end elevator;
