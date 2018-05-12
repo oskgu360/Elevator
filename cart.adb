@@ -38,7 +38,11 @@ PACKAGE BODY Cart IS
             operationDelay : time;
       BEGIN
             operationDelay := clock;
-            if C.max_level = C.min_level AND C.min_level = C.level.level then
+            if C.max_level = C.min_level AND C.min_level = C.level.level 
+            AND NOT (isPressed(C.floorList(C.level.level).buttons(Up)) OR                          
+            isPressed(C.buttons(C.level.level)) OR
+            isPressed(C.floorList(C.level.level).buttons(Down))) 
+            then
                   put("IDLE ON FLOOR ");put(Integer'Image(C.level.level));new_line;
                   operationDelay := operationDelay + 3.0;
                   delay until operationDelay;
