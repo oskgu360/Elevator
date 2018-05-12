@@ -7,7 +7,7 @@ PACKAGE Cart IS
       -- type direction is (Up, Down);
       type floor_buttons is array(-1..8) of button.button;   
 
-      type cart is tagged 
+      type cart is tagged
             record
                   level : floors.floors;
                   max_level : integer;
@@ -29,6 +29,6 @@ PACKAGE Cart IS
 
       procedure calculateMinMax(C : IN OUT cart);
 
-      -- procedure destructCart;
+      procedure destructCart;
 
 End Cart;

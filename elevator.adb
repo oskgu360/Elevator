@@ -9,7 +9,6 @@ with floors; use floors;
 
 procedure elevator is
 
-
     cart_one : cart.cart := initCart;
 
 
@@ -77,9 +76,14 @@ procedure elevator is
     task sim;
     task body sim is
     begin
-        button_signals.cart_press(8);
-        -- button_signals.cart_press(-1);
+        button_signals.cart_press(6);
+       
+        button_signals.cart_press(-1);
+    
         button_signals.floor_press(Up, -1);
+    
+        button_signals.floor_press(Down, 5);
+        delay 10.0;
         button_signals.cart_press(4);
     end sim;
 
@@ -88,7 +92,6 @@ procedure elevator is
     begin
         loop
             driveCart(cart_one);
-            delay 1.0;
         end loop;
     end driveC;
     --- MAIN ---
@@ -99,8 +102,9 @@ begin
     -- Get_Input;
 
     -- Inside_Elevator;
-    delay 30.0;  
+    delay 60.0;  
     new_line; put("splat");new_line;
     abort button_signals;
-    -- destructCart;
+    abort driveC;
+    destructCart;
 end elevator;

@@ -4,12 +4,12 @@ P ZX
 RN
 RV SPARK_05
 
-U button%b		button.adb		7f79ac9a NE OO PK KU
+U button%b		button.adb		8e846230 NE OO PK KU
 
 U button%s		button.ads		785c4211 EE NE OO PK KU
 
 D button.ads		20180512080216 785c4211
-D button.adb		20180512080239 0725ee8b
+D button.adb		20180512120318 f6d82021
 D system.ads		20160213141829 90249111
 X 1 button.ads
 1K9*Button 13l5 13e11 2|1b14 24l5 24t11
@@ -17,7 +17,7 @@ X 1 button.ads
 5V10*isPressed{boolean} 5>20 2|8b14 11t8
 5b20 B{3E6} 2|8b24 10r24
 7U11*press 7=17 2|3b15 6t8
-7b17 B{3E6} 2|3b21 5m9 5r18
+7b17 B{3E6} 2|3b21 5m9
 9U11*setFalse 9=20 2|13b15 16t8
 9b20 B{3E6} 2|13b24 15m9
 11V10*initButton{3E6} 2|18b14 23t8
