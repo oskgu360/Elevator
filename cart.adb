@@ -1,5 +1,6 @@
 WITH Text_Io; USE Text_Io;
 with Calendar; use Calendar;
+WITH NT_Console; USE NT_Console;
 
 PACKAGE BODY Cart IS
 
@@ -19,7 +20,7 @@ PACKAGE BODY Cart IS
       function initCart return cart IS
             C : cart;
       BEGIN
-            for I in -1..8 loop
+            for I in 0..8 loop
                   C.floorList(I) := initFloor(I);
                   C.buttons(I) := initButton;
             end loop;
@@ -38,20 +39,19 @@ PACKAGE BODY Cart IS
             operationDelay : time;
       BEGIN
             operationDelay := clock;
-            if C.max_level = C.min_level AND C.min_level = C.level.level 
-            AND NOT (isPressed(C.floorList(C.level.level).buttons(Up)) OR                          
-            isPressed(C.buttons(C.level.level)) OR
-            isPressed(C.floorList(C.level.level).buttons(Down))) 
-            then
-                  put("IDLE ON FLOOR ");put(Integer'Image(C.level.level));new_line;
-                  operationDelay := operationDelay + 3.0;
-                  delay until operationDelay;
-                  return;
-            end if;
+            -- if C.max_level = C.min_level AND C.min_level = C.level.level 
+            -- AND NOT (isPressed(C.floorList(C.level.level).buttons(Up)) OR                          
+            -- isPressed(C.buttons(C.level.level)) OR
+            -- isPressed(C.floorList(C.level.level).buttons(Down))) 
+            -- then
+            --       operationDelay := operationDelay + 3.0; --idle 
+            --       delay until operationDelay;
+            --       return;
+            -- end if;
             
-
-            put("DRIVE: Min floor: ");put(Integer'Image(C.min_level));put(" Max floor: ");put(Integer'Image(C.max_level)); put(" Current floor: ");put(Integer'Image(C.level.level));new_line;
-            operationDelay := operationDelay + 1.0;
+           
+            -- put("DRIVE: Min floor:                         ");put(Integer'Image(C.min_level));put(" Max floor: ");put(Integer'Image(C.max_level)); put(" Current floor: ");put(Integer'Image(C.level.level));new_line;
+            operationDelay := operationDelay + 2.0;
             delay until operationDelay;
             
             semaphore.P;
@@ -63,11 +63,14 @@ PACKAGE BODY Cart IS
                   setFalse(C.floorList(C.level.level).buttons(Up));
                   setFalse(C.buttons(C.level.level));
                   calculateMinMax(C); -- Calculate new min max
-
-                  put("Opening doors at floor "); put(Integer'Image(C.level.level));new_line;
+                  -- Goto_XY(0,0);
+                  -- put("                                       ");
+                  -- put("Opening doors at floor"); put(Integer'Image(C.level.level));new_line;
                   operationDelay := operationDelay + 5.0;
                   delay until operationDelay;
-                  put("Closing doors at floor "); put(Integer'Image(C.level.level));new_line;
+                  -- Goto_XY(0,0);
+                  -- put("                                       ");
+                  -- put("Closing doors at floor"); put(Integer'Image(C.level.level));new_line;
 
             elsif C.dir = Down AND
             (isPressed(C.floorList(C.level.level).buttons(Down)) OR
@@ -76,11 +79,13 @@ PACKAGE BODY Cart IS
                   setFalse(C.floorList(C.level.level).buttons(Down));
                   setFalse(C.buttons(C.level.level));
                   calculateMinMax(C); -- Calculate new min max
-
-                  put("Opening doors at floor "); put(Integer'Image(C.level.level));new_line;
+                  -- Goto_XY(0,0);
+                  -- put("                                       ");
+                  -- put("Opening doors at floor"); put(Integer'Image(C.level.level));new_line;
                   operationDelay := operationDelay + 5.0;
                   delay until operationDelay;
-                  put("Closing doors at floor "); put(Integer'Image(C.level.level));new_line;
+                  -- put("                                       ");
+                  -- put("Closing doors at floor"); put(Integer'Image(C.level.level));new_line;
             end if;
             
             if C.level.level < C.max_level AND C.dir = Up then
@@ -89,10 +94,10 @@ PACKAGE BODY Cart IS
                   C.level.level := C.level.level - 1;
             elsif (C.level.level = C.min_level OR C.level.level < C.min_level)  AND C.dir = Down then
                   C.dir := Up;
-                  put("Changing direction to up at floor "); put(Integer'Image(C.level.level));new_line;
+                  -- put("Changing direction to up at floor "); put(Integer'Image(C.level.level));new_line;
             elsif (C.level.level = C.max_level OR C.level.level > C.max_level)  AND C.dir = Up then
                   C.dir := Down;      
-                  put("Changing direction to down at floor "); put(Integer'Image(C.level.level));new_line;
+                  -- put("Changing direction to down at floor "); put(Integer'Image(C.level.level));new_line;
             end if;
             semaphore.V;
       END;
@@ -124,8 +129,8 @@ PACKAGE BODY Cart IS
       -- Calculate new min and max after change in button presses --
       BEGIN
             C.min_level := 8;
-            C.max_level := -1;
-            for L in -1..8 loop
+            C.max_level := 0;
+            for L in 0..8 loop
                   if L < C.min_level AND 
                         (isPressed(C.floorList(L).buttons(Up)) OR 
                         isPressed(C.floorList(L).buttons(Down)) OR
@@ -142,7 +147,7 @@ PACKAGE BODY Cart IS
                   end if;
             end loop;
 
-            if C.min_level = 8 AND C.max_level = -1 then
+            if C.min_level = 8 AND C.max_level = 0 then
                   C.min_level := C.level.level;
                   C.max_level := C.level.level;
             end if;

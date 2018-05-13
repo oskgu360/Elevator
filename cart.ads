@@ -3,9 +3,9 @@ with floors; use floors;
 with button; use button;
 PACKAGE Cart IS
 
-      type floor_list is array(-1..8) of floors.floors;
+      type floor_list is array(0..8) of floors.floors;
       -- type direction is (Up, Down);
-      type floor_buttons is array(-1..8) of button.button;   
+      type floor_buttons is array(0..8) of button.button;   
 
       type cart is tagged
             record

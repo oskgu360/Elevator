@@ -1,4 +1,6 @@
-V "GNAT Lib v4.9"
+V "GNAT Lib v2017"
+A -gnatwu
+A -gnat05
 P SS ZX
 
 RN
@@ -10,24 +12,25 @@ RV NO_DISPATCHING_CALLS
 RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
-RV NO_IMPLICIT_LOOPS
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_TASKING
 RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1
 
-U cart%b		cart.adb		c35960ac OO PK KU
+U cart%b		cart.adb		4a6fca58 OO PK KU
 W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W calendar%s		calendar.ads		calendar.ali
 W interfaces%s		interfac.ads		interfac.ali
+W nt_console%s		nt_console.adb		nt_console.ali
 W system%s		system.ads		system.ali
-W system.img_int%s	s-imgint.adb		s-imgint.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
@@ -37,7 +40,7 @@ W system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
 W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
 W text_io%s		text_io.ads		text_io.ali
 
-U cart%s		cart.ads		6e800700 EE OO PF PK KU
+U cart%s		cart.ads		bedb9de7 EE OO PF PK KU
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 W ada.containers.indefinite_vectors%s
@@ -51,159 +54,152 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
-D ada.ads		20070406091342 3ffc8e18
-D a-calend.ads		20120515092648 d86d6c8c
-D a-caldel.ads		20140120152337 9f20b83d
-D a-contai.ads		20101025135029 61e5e089
-D a-coinve.ads		20130411133353 cfa7d9ff
-D a-except.ads		20140129161953 f86a4103
-D a-finali.ads		20111121113555 52ecdc1b
-D a-ioexce.ads		20140225151544 e4a01f64
-D a-iteint.ads		20110906092602 7c7305e9
-D a-reatim.ads		20090409150019 63f07669
-D a-stream.ads		20140122164720 1a984740
-D a-tags.ads		20111212115430 6c0509d0
-D a-textio.ads		20140129155348 386df5d4
-D a-unccon.ads		20070406091342 f9eb8f06
-D button.ads		20180512080216 785c4211
-D calendar.ads		20070406091342 2cb525cd
-D cart.ads		20180512124026 61e27fe1
-D cart.adb		20180512130820 cbd81c49
-D floors.ads		20180510022303 b899e30f
-D interfac.ads		20140225151838 69adb1b9
-D i-c.ads		20110801143639 5421119b
-D i-cstrea.ads		20130412125801 8128536b
-D system.ads		20160213141829 90249111
-D s-atacco.ads		20120515093410 4c36d12f
-D s-crtl.ads		20140225151544 840e6817
-D s-exctab.ads		20140225151139 54135002
-D s-ficobl.ads		20120709130952 55a71d43
-D s-finmas.ads		20140225151139 814daec4
-D s-finroo.ads		20120426095924 4ff27390
-D s-imgint.ads		20090409150019 02dbe0c2
-D s-linux.ads		20140409145429 5b2f79a5
-D s-multip.ads		20101011073009 38ac9f73
-D s-oscons.ads		20160213141902 a445b120
-D s-osinte.ads		20140409145429 59011f13
-D s-parame.ads		20140225151139 ab8cb46a
-D s-pooglo.ads		20110804083314 542f33d0
-D s-secsta.ads		20140225151139 86a2856d
-D s-soflin.ads		20140225151139 aa763b52
-D s-stache.ads		20140225151139 a37c21ec
-D s-stausa.ads		20110804134155 017a0a05
-D s-stalib.ads		20140225151139 a891183f
-D s-stoele.ads		20140225151139 2dc34a04
-D s-stoele.adb		20140225151139 ed88f8fb
-D s-stopoo.ads		20131010103753 b16154c2
-D s-stratt.ads		20131014135145 aedef97e
-D s-tasinf.ads		20120730151500 21316953
-D s-taspri.ads		20110927094500 15f617a8
-D s-taprop.ads		20111212143339 1dd2e1b6
-D s-taskin.ads		20140131154341 3f821f32
-D s-taprob.ads		20110927094500 502249e3
-D s-tpoben.ads		20121029113218 b641f948
-D s-tasren.ads		20120208100446 a67a9949
-D s-tassta.ads		20121029110946 70812003
-D s-traent.ads		20140225151139 b5116092
-D s-unstyp.ads		20140225151139 510692af
-D s-wchcon.ads		20140225151139 1b7d22d2
-D text_io.ads		20070406091342 45d626c9
+D ada.ads		20170516105950 76789da1 ada%s
+D a-calend.ads		20170516105954 2d5f01d4 ada.calendar%s
+D a-caldel.ads		20170516105948 9f20b83d ada.calendar.delays%s
+D a-contai.ads		20170516105950 61e5e089 ada.containers%s
+D a-conhel.ads		20170516105950 20298884 ada.containers.helpers%s
+D a-coinve.ads		20170516105956 b7300cfa ada.containers.indefinite_vectors%s
+D a-except.ads		20170516105952 291912d5 ada.exceptions%s
+D a-finali.ads		20170516105954 bf4f806b ada.finalization%s
+D a-ioexce.ads		20170516105948 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20170516105952 7c7305e9 ada.iterator_interfaces%s
+D a-reatim.ads		20170516105950 a87e2da7 ada.real_time%s
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-tags.ads		20170516105954 d3a89129 ada.tags%s
+D a-textio.ads		20170516105954 386df5d4 ada.text_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D button.ads		20180512110552 785c4211 button%s
+D calendar.ads		20170516105950 2cb525cd calendar%s
+D cart.ads		20180513130624 c92e3003 cart%s
+D cart.adb		20180513130624 1c0e5f5b cart%b
+D floors.ads		20180512110552 b899e30f floors%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-c.ads		20170516105948 5421119b interfaces.c%s
+D i-cstrin.ads		20170516105952 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D nt_console.ads	20030323060124 92484855 nt_console%s
+D system.ads		20170516105954 32a08138 system%s
+D s-atacco.ads		20170516105954 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20170516105956 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-finroo.ads		20170516105954 4ff27390 system.finalization_root%s
+D s-multip.ads		20170516105948 38ac9f73 system.multiprocessors%s
+D s-osinte.ads		20170516105954 2e5b26a9 system.os_interface%s
+D s-parame.ads		20170516105954 7e2a0d7f system.parameters%s
+D s-secsta.ads		20170516105954 9751b57e system.secondary_stack%s
+D s-soflin.ads		20170516105950 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105954 a37c21ec system.stack_checking%s
+D s-stausa.ads		20170516105954 017a0a05 system.stack_usage%s
+D s-stalib.ads		20170516105954 09bd3940 system.standard_library%s
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20170516105954 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20170516105948 aedef97e system.stream_attributes%s
+D s-tasinf.ads		20170516105952 601f6b72 system.task_info%s
+D s-taspri.ads		20170516105952 6c1d93d4 system.task_primitives%s
+D s-taprop.ads		20170516105950 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20170516105956 05d6152c system.tasking%s
+D s-taprob.ads		20170516105950 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20170516105956 60ad3dae system.tasking.protected_objects.entries%s
+D s-tasren.ads		20170516105950 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20170516105952 5a53a7c6 system.tasking.stages%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105952 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D s-win32.ads		20170516105948 b7f96285 system.win32%s
+D text_io.ads		20170516105954 21b2c898 text_io%s
 X 1 ada.ads
-16K9*Ada 19e8 17|1r6 1r45
+16K9*Ada 20e8 18|1r6 1r45
 X 2 a-calend.ads
-38I9*Time<200I9> 18|38r30
-52V13*Clock{38I9} 18|40s31
-94V14*"+"{38I9} 18|47s52 54s46 68s52 81s52
-200I9 Time_Rep<long_integer>
+44I9*Time<213I9> 19|39r30
+58V13*Clock{44I9} 19|41s31
+102V14*"+"{44I9} 19|54s46 69s52 85s52
+213I9 Time_Rep<long_long_integer>
 X 4 a-contai.ads
-16K13*Containers 24e19 17|1r10 1r49
-X 5 a-coinve.ads
-45k24*Indefinite_Vectors 486e38 17|1w21
-X 9 a-iteint.ads
+16K13*Containers 24e19 18|1r10 1r49
+X 6 a-coinve.ads
+46k24*Indefinite_Vectors 509e38 18|1w21
+X 10 a-iteint.ads
 24h9 Forward_Iterator
-32h9 Reversible_Iterator<24R9[5|73]>
-X 13 a-textio.ads
-166U14*New_Line 18|46s75 53s182 67s85 70s85 80s85 83s85 92s96 95s98
-242U14*Put 18|46s19 46s41 53s13 53s39 53s71 53s91 53s124 53s148 67s19 67s51
-. 70s19 70s51 80s19 80s51 83s19 83s51 92s19 92s62 95s19 95s64
-X 15 button.ads
-1K9*Button 13e11 17|3w6 3r18 8r45
-3B6*button<boolean> 17|8r52
-5V10*isPressed{boolean} 18|42s22 43s13 44s13 60s14 61s13 73s14 74s13 130s26
-. 131s25 132s25 137s26 138s25 139s25
-7U11*press 18|106s13 116s13
-9U11*setFalse 18|63s19 64s19 76s19 77s19
-11V10*initButton{3E6} 18|24s35
-X 16 calendar.ads
-18K9*Calendar=18:30 18|2w6 2r20
-X 17 cart.ads
-4K9*Cart 34l5 34e9 18|4b14 155l5 155t9
-6A12*floor_list(19|6R10)<integer> 15r31
-8A12*floor_buttons(15|3E6)<integer> 16r29
+32h9 Reversible_Iterator<24R9[6|75]>
+X 16 button.ads
+1K9*Button 13e11 18|3w6 3r18 8r44
+3B6*button<boolean> 18|8r51
+5V10*isPressed{boolean} 19|60s14 61s13 76s14 77s13 135s26 136s25 137s25 142s26
+. 143s25 144s25
+7U11*press 19|111s13 121s13
+9U11*setFalse 19|63s19 64s19 79s19 80s19
+11V10*initButton{3E6} 19|25s35
+X 17 calendar.ads
+18K9*Calendar=18:30 19|2w6 2r20
+X 18 cart.ads
+4K9*Cart 34l5 34e9 19|5b14 160l5 160t9
+6A12*floor_list(20|6R10)<integer> 15r31
+8A12*floor_buttons(16|3E6)<integer> 16r29
 10R12*cart 19e23 21p16 21r32 24p17 24r38 26p17 26r44 28p17 28r45 30p17 30r44
-. 18|19r32 20r17 36r38 101r44 113r45 123r44
-12r19*level{19|6R10} 18|27m15 28r30 29r30 41r62 42r46 43r35 44r37 46r61 53r168
-. 60r38 61r35 63r42 64r40 67r71 70r71 73r38 74r35 76r42 77r40 80r71 83r71
-. 86r18 87m21 87r38 88r21 89m21 89r38 90r22 90r53 92r82 93r22 93r53 95r84
-. 146r36 147r36
-13i19*max_level{integer} 18|28m15 41r18 53r111 86r34 93r38 93r69 127m15 136r28
-. 141m27 145r38 147m21
-14i19*min_level{integer} 18|29m15 41r32 41r48 53r59 88r37 90r38 90r69 126m15
-. 129r28 134m27 145r18 146m21
-15a19*floorList{6A12} 18|23m21 27r26 42r34 44r25 60r26 63m30 73r26 76m30
-. 116m21 130r38 131r37 137r38 138r37
-16a19*buttons{8A12} 18|24m21 43r25 61r25 64m30 74r25 77m30 106m21 132r37
-. 139r37
-17e19*dir{19|4E10} 18|30m15 59r18 72r21 86r50 88r53 90r87 91m21 93r87 94m21
-18b19*idle{boolean} 18|31m15
-21V16*initCart{10R12} 18|19b16 33t10
-24U17*driveCart 24=27 18|36b17 98t10
-24r27 C{10R12} 18|36b27 41r16 41r30 41r46 41r60 42r32 42r44 43r23 43r33 44r23
-. 44r35 46r59 53r57 53r109 53r166 59r16 60r24 60r36 61r23 61r33 63m28 63r28
-. 63r40 64m28 64r28 64r38 65m35 67r69 70r69 72r19 73r24 73r36 74r23 74r33
-. 76m28 76r28 76r40 77m28 77r28 77r38 78m35 80r69 83r69 86r16 86r32 86r48
-. 87m19 87r36 88r19 88r35 88r51 89m19 89r36 90r20 90r36 90r51 90r67 90r85
-. 91m19 92r80 93r20 93r36 93r51 93r67 93r85 94m19 95r82
-26U17*pressCartButton 26=33 26>50 18|101b17 111t10
-26r33 C{10R12} 18|101b33 106m19 106r19 107m29
-26i50 L{integer} 18|101b50 106r29
-28U17*pressFloorButton 28=34 28>51 28>67 18|113b17 121t10
-28r34 C{10R12} 18|113b34 116m19 116r19 117m29
-28i51 L{integer} 18|113b51 116r31
-28e67 D{19|4E10} 18|113b67 116r42
-30U17*calculateMinMax 30=33 18|65s19 78s19 107s13 117s13 123b17 149t10
-30r33 C{10R12} 18|123b33 126m13 127m13 129r26 130r36 131r35 132r35 134m25
-. 136r26 137r36 138r35 139r35 141m25 145r16 145r36 146m19 146r34 147m19 147r34
-32U17*destructCart 18|151b17 154t10
-X 18 cart.adb
-6t12 semaphore 10b19 16l13 16t22 57r13 97r13 104r13 109r13 115r13 119r13
-. 153r19
-7Y19 P 13b32 57s23 104s23 115s23
-8Y19 V 14b32 97s23 109s23 119s23
-20r13 C{17|10R12} 23m19 23r19 24m19 27m13 27r24 28m13 28r28 29m13 29r28 30m13
-. 31m13 32r20
-22i17 I{integer} 23r31 23r47 24r29
-38i13 operationDelay{2|38I9} 40m13 47m19 47r37 48r31 54m13 54r31 55r25 68m19
-. 68r37 69r31 81m19 81r37 82r31
-128i17 L{integer} 129r22 130r48 131r47 132r45 134r40 136r22 137r48 138r47
-. 139r45 141r40
-X 19 floors.ads
-2K9*Floors 17|2w6 2r18 6r42 12r27 17r25 19|15e11
-4E10*direction 17|17r32 28r74 18|113r74 19|4e33
-4n24*Up{4E10} 18|30r22 42r67 59r24 60r59 63r63 86r56 91r28 93r93 130r59 137r59
-4n28*Down{4E10} 18|44r58 72r27 73r59 76r63 88r59 90r93 94r28 131r58 138r58
-5A10*dir_buttons(15|3E6)<4E10>
-6R10*floors 17|6r49 12r34 19|10e19
-8i13*level{integer} 18|28r36 29r36 41r68 42r52 43r41 44r43 46r67 53r174 60r44
-. 61r41 63r48 64r46 67r77 70r77 73r44 74r41 76r48 77r46 80r77 83r77 86r24
-. 87m27 87r44 88r27 89m27 89r44 90r28 90r59 92r88 93r28 93r59 95r90 146r42
-. 147r42
-9a13*buttons{5A10} 18|42r59 44r50 60r51 63m55 73r51 76m55 116m34 130r51 131r50
-. 137r51 138r50
-12V14*initFloor{6R10} 18|23s37
-X 40 s-stausa.ads
+. 19|20r32 21r17 37r38 106r44 118r45 128r44
+12r19*level{20|6R10} 19|28m15 29r30 30r30 60r38 61r35 63r42 64r40 76r38 77r35
+. 79r42 80r40 91r18 92m21 92r38 93r21 94m21 94r38 95r22 95r53 98r22 98r53
+. 151r36 152r36
+13i19*max_level{integer} 19|29m15 91r34 98r38 98r69 132m15 141r28 146m27
+. 150r38 152m21
+14i19*min_level{integer} 19|30m15 93r37 95r38 95r69 131m15 134r28 139m27
+. 150r18 151m21
+15a19*floorList{6A12} 19|24m21 28r26 60r26 63m30 76r26 79m30 121m21 135r38
+. 136r37 142r38 143r37
+16a19*buttons{8A12} 19|25m21 61r25 64m30 77r25 80m30 111m21 137r37 144r37
+17e19*dir{20|4E10} 19|31m15 59r18 75r21 91r50 93r53 95r87 96m21 98r87 99m21
+18b19*idle{boolean} 19|32m15
+21V16*initCart{10R12} 19|20b16 34t10
+24U17*driveCart 24=27 19|37b17 103t10
+24r27 C{10R12} 19|37b27 59r16 60r24 60r36 61r23 61r33 63m28 63r28 63r40 64m28
+. 64r28 64r38 65m35 75r19 76r24 76r36 77r23 77r33 79m28 79r28 79r40 80m28
+. 80r28 80r38 81m35 91r16 91r32 91r48 92m19 92r36 93r19 93r35 93r51 94m19
+. 94r36 95r20 95r36 95r51 95r67 95r85 96m19 98r20 98r36 98r51 98r67 98r85
+. 99m19
+26U17*pressCartButton 26=33 26>50 19|106b17 116t10
+26r33 C{10R12} 19|106b33 111m19 111r19 112m29
+26i50 L{integer} 19|106b50 111r29
+28U17*pressFloorButton 28=34 28>51 28>67 19|118b17 126t10
+28r34 C{10R12} 19|118b34 121m19 121r19 122m29
+28i51 L{integer} 19|118b51 121r31
+28e67 D{20|4E10} 19|118b67 121r42
+30U17*calculateMinMax 30=33 19|65s19 81s19 112s13 122s13 128b17 154t10
+30r33 C{10R12} 19|128b33 131m13 132m13 134r26 135r36 136r35 137r35 139m25
+. 141r26 142r36 143r35 144r35 146m25 150r16 150r36 151m19 151r34 152m19 152r34
+32U17*destructCart 19|156b17 159t10
+X 19 cart.adb
+7t12 semaphore 11b19 17l13 17t22 57r13 102r13 109r13 114r13 120r13 124r13
+. 158r19
+8Y19 P 14b32 57s23 109s23 120s23
+9Y19 V 15b32 102s23 114s23 124s23
+21r13 C{18|10R12} 24m19 24r19 25m19 28m13 28r24 29m13 29r28 30m13 30r28 31m13
+. 32m13 33r20
+23i17 I{integer} 24r31 24r47 25r29
+39i13 operationDelay{2|44I9} 41m13 54m13 54r31 55r25 69m19 69r37 70r31 85m19
+. 85r37 86r31
+133i17 L{integer} 134r22 135r48 136r47 137r45 139r40 141r22 142r48 143r47
+. 144r45 146r40
+X 20 floors.ads
+2K9*Floors 18|2w6 2r18 6r41 12r27 17r25 20|15e11
+4E10*direction 18|17r32 28r74 19|118r74 20|4e33
+4n24*Up{4E10} 19|31r22 59r24 60r59 63r63 91r56 96r28 98r93 135r59 142r59
+4n28*Down{4E10} 19|75r27 76r59 79r63 93r59 95r93 99r28 136r58 143r58
+5A10*dir_buttons(16|3E6)<4E10>
+6R10*floors 18|6r48 12r34 20|10e19
+8i13*level{integer} 19|29r36 30r36 60r44 61r41 63r48 64r46 76r44 77r41 79r48
+. 80r46 91r24 92m27 92r44 93r27 94m27 94r44 95r28 95r59 98r28 98r59 151r42
+. 152r42
+9a13*buttons{5A10} 19|60r51 63m55 76r51 79m55 121m34 135r51 136r50 142r51
+. 143r50
+12V14*initFloor{6R10} 19|24s37
+X 25 nt_console.ads
+25K9*NT_Console 19|3w6 3r22 25|223e15
+X 39 s-stausa.ads
 203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
 268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
-X 57 text_io.ads
-24K9*Text_IO=24:29 18|1w6 1r19
+X 56 text_io.ads
+24K9*Text_IO=24:29 19|1w6 1r19
 

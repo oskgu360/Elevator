@@ -1,0 +1,306 @@
+V "GNAT Lib v2017"
+A -gnatwu
+A -gnat05
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U nt_console%b		nt_console.adb		e321c588 OO PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+L "-luser32"
+
+U nt_console%s		nt_console.ads		92484855 EE NE OO PK
+
+D ada.ads		20170516105950 76789da1 ada%s
+D a-except.ads		20170516105952 291912d5 ada.exceptions%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D nt_console.ads	20030323060124 92484855 nt_console%s
+D nt_console.adb	20030323060124 2bdcdfb5 nt_console%b
+D system.ads		20170516105954 32a08138 system%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-parame.ads		20170516105954 7e2a0d7f system.parameters%s
+D s-stalib.ads		20170516105954 09bd3940 system.standard_library%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+X 4 interfac.ads
+38K9*Interfaces 184e15 6|27w6 27r22
+63M9*Unsigned_8 6|61r23
+66M9*Unsigned_16 6|48r22
+74M9*Unsigned_32 6|46r22 47r22
+X 5 nt_console.ads
+25K9*NT_Console 223l5 223e15 6|29b14 300l5 300t15
+31I12*X_Pos{natural} 189r28 192r30 192r39 6|164r28 167r14 176r30 176r39 237r33
+32I12*Y_Pos{natural} 190r28 193r30 193r39 6|170r28 173r14 177r30 177r39 237r52
+34E9*Color_Type 36e53 199r35 200r35 202r41 203r41 209r39 6|134r39 135r50
+. 196r35 202r35 208r41 219r41 234r39
+34n24*Black{34E9} 203r55 209r53 6|135r65 136r65 219r55 234r53
+34n31*Blue{34E9} 6|135r72
+34n37*Green{34E9} 6|135r78
+34n44*Cyan{34E9} 6|135r85
+34n50*Red{34E9} 6|135r91
+34n55*Magenta{34E9} 6|135r96
+34n64*Brown{34E9} 6|135r105
+34n71*Gray{34E9} 202r55 6|135r112 208r55
+35n24*Light_Blue{34E9} 6|136r72
+35n36*Light_Green{34E9} 6|136r84
+35n49*Light_Cyan{34E9} 6|136r97
+35n61*Light_Red{34E9} 6|136r109
+36n24*Light_Magenta{34E9} 6|137r65
+36n39*Yellow{34E9} 6|137r80
+36n47*White{34E9} 6|137r88
+42e4*Key_Alt_Escape{character}
+43e4*Key_Control_At{character}
+44e4*Key_Alt_Backspace{character}
+45e4*Key_BackTab{character}
+46e4*Key_Alt_Q{character}
+47e4*Key_Alt_W{character}
+48e4*Key_Alt_E{character}
+49e4*Key_Alt_R{character}
+50e4*Key_Alt_T{character}
+51e4*Key_Alt_Y{character}
+52e4*Key_Alt_U{character}
+53e4*Key_Alt_I{character}
+54e4*Key_Alt_O{character}
+55e4*Key_Alt_P{character}
+56e4*Key_Alt_LBracket{character}
+57e4*Key_Alt_RBracket{character}
+58e4*Key_Alt_Return{character}
+59e4*Key_Alt_A{character}
+60e4*Key_Alt_S{character}
+61e4*Key_Alt_D{character}
+62e4*Key_Alt_F{character}
+63e4*Key_Alt_G{character}
+64e4*Key_Alt_H{character}
+65e4*Key_Alt_J{character}
+66e4*Key_Alt_K{character}
+67e4*Key_Alt_L{character}
+68e4*Key_Alt_Semicolon{character}
+69e4*Key_Alt_Quote{character}
+70e4*Key_Alt_Backquote{character}
+71e4*Key_Alt_Backslash{character}
+72e4*Key_Alt_Z{character}
+73e4*Key_Alt_X{character}
+74e4*Key_Alt_C{character}
+75e4*Key_Alt_V{character}
+76e4*Key_Alt_B{character}
+77e4*Key_Alt_N{character}
+78e4*Key_Alt_M{character}
+79e4*Key_Alt_Comma{character}
+80e4*Key_Alt_Period{character}
+81e4*Key_Alt_Slash{character}
+82e4*Key_Alt_KPStar{character}
+83e4*Key_F1{character}
+84e4*Key_F2{character}
+85e4*Key_F3{character}
+86e4*Key_F4{character}
+87e4*Key_F5{character}
+88e4*Key_F6{character}
+89e4*Key_F7{character}
+90e4*Key_F8{character}
+91e4*Key_F9{character}
+92e4*Key_F10{character}
+93e4*Key_Home{character}
+94e4*Key_Up{character}
+95e4*Key_PageUp{character}
+96e4*Key_Alt_KPMinus{character}
+97e4*Key_Left{character}
+98e4*Key_Center{character}
+99e4*Key_Right{character}
+100e4*Key_Alt_KPPlus{character}
+101e4*Key_End{character}
+102e4*Key_Down{character}
+103e4*Key_PageDown{character}
+104e4*Key_Insert{character}
+105e4*Key_Delete{character}
+106e4*Key_Shift_F1{character}
+107e4*Key_Shift_F2{character}
+108e4*Key_Shift_F3{character}
+109e4*Key_Shift_F4{character}
+110e4*Key_Shift_F5{character}
+111e4*Key_Shift_F6{character}
+112e4*Key_Shift_F7{character}
+113e4*Key_Shift_F8{character}
+114e4*Key_Shift_F9{character}
+115e4*Key_Shift_F10{character}
+116e4*Key_Control_F1{character}
+117e4*Key_Control_F2{character}
+118e4*Key_Control_F3{character}
+119e4*Key_Control_F4{character}
+120e4*Key_Control_F5{character}
+121e4*Key_Control_F6{character}
+122e4*Key_Control_F7{character}
+123e4*Key_Control_F8{character}
+124e4*Key_Control_F9{character}
+125e4*Key_Control_F10{character}
+126e4*Key_Alt_F1{character}
+127e4*Key_Alt_F2{character}
+128e4*Key_Alt_F3{character}
+129e4*Key_Alt_F4{character}
+130e4*Key_Alt_F5{character}
+131e4*Key_Alt_F6{character}
+132e4*Key_Alt_F7{character}
+133e4*Key_Alt_F8{character}
+134e4*Key_Alt_F9{character}
+135e4*Key_Alt_F10{character}
+136e4*Key_Control_Left{character}
+137e4*Key_Control_Right{character}
+138e4*Key_Control_End{character}
+139e4*Key_Control_PageDown{character}
+140e4*Key_Control_Home{character}
+141e4*Key_Alt_1{character}
+142e4*Key_Alt_2{character}
+143e4*Key_Alt_3{character}
+144e4*Key_Alt_4{character}
+145e4*Key_Alt_5{character}
+146e4*Key_Alt_6{character}
+147e4*Key_Alt_7{character}
+148e4*Key_Alt_8{character}
+149e4*Key_Alt_9{character}
+150e4*Key_Alt_0{character}
+151e4*Key_Alt_Dash{character}
+152e4*Key_Alt_Equals{character}
+153e4*Key_Control_PageUp{character}
+154e4*Key_F11{character}
+155e4*Key_F12{character}
+156e4*Key_Shift_F11{character}
+157e4*Key_Shift_F12{character}
+158e4*Key_Control_F11{character}
+159e4*Key_Control_F12{character}
+160e4*Key_Alt_F11{character}
+161e4*Key_Alt_F12{character}
+162e4*Key_Control_Up{character}
+163e4*Key_Control_KPDash{character}
+164e4*Key_Control_Center{character}
+165e4*Key_Control_KPPlus{character}
+166e4*Key_Control_Down{character}
+167e4*Key_Control_Insert{character}
+168e4*Key_Control_Delete{character}
+169e4*Key_Control_KPSlash{character}
+170e4*Key_Control_KPStar{character}
+171e4*Key_Alt_EHome{character}
+172e4*Key_Alt_EUp{character}
+173e4*Key_Alt_EPageUp{character}
+174e4*Key_Alt_ELeft{character}
+175e4*Key_Alt_ERight{character}
+176e4*Key_Alt_EEnd{character}
+177e4*Key_Alt_EDown{character}
+178e4*Key_Alt_EPageDown{character}
+179e4*Key_Alt_EInsert{character}
+180e4*Key_Alt_EDelete{character}
+181e4*Key_Alt_KPSlash{character}
+182e4*Key_Alt_Tab{character}
+183e4*Key_Alt_Enter{character}
+189V13*Where_X{31I12} 6|164b13 168l8 168t15
+190V13*Where_Y{32I12} 6|170b13 174l8 174t15
+192U14*Goto_XY 192>23 193>23 6|176b14 190l8 190t15
+192i23 X{31I12} 6|176b23 178r34
+193i23 Y{32I12} 6|177b23 178r45
+199V13*Get_Foreground{34E9} 6|196b13 200l8 200t22
+200V13*Get_Background{34E9} 6|202b13 206l8 206t22
+202U14*Set_Foreground 202>30 6|208b14 217l8 217t22
+202e30 Color{34E9} 6|208b30 212r39
+203U14*Set_Background 203>30 6|219b14 228l8 228t22
+203e30 Color{34E9} 6|219b30 224r39
+209U14*Clear_Screen 209>28 6|234b14 254l8 254t20
+209e28 Color{34E9} 6|234b28 240r39
+214U14*Bleep 6|259b14 264l8 264t13
+220V13*Get_Key{character} 6|270b13 278l8 278t15
+221V13*Key_Available{boolean} 6|280b13 287l8 287t21
+X 6 nt_console.adb
+37X4 Beep_Error 262r16
+38X4 Fill_Char_Error 249r16
+39X4 Cursor_Pos_Error 188r16
+40X4 Buffer_Info_Error 156r16
+41X4 Set_Attribute_Error 215r16 226r16 243r16
+42X4 Invalid_Handle_Error 297r13
+43X4 Fill_Attribute_Error 246r16
+44X4 Cursor_Position_Error 252r16
+46M12 DWORD{4|74M9} 51r31 109r33 109r47 112r35 115r76 118r80 121r101 124r86
+. 124r134 127r86 127r134 130r36 132r36 144r31 237r16 237r25
+47M12 HANDLE{4|74M9} 112r49 115r48 118r47 121r50 124r51 127r51 131r36 143r23
+48M12 WORD{4|66M9}
+49I12 SHORT{short_integer} 76r14 77r14 83r19 84r19 85r19 86r19 178r27 178r38
+51P9 LPDWORD(46M12) 52r26 124r118 127r118 145r23
+54M9 Nibble 55r8 59r23 60r23 134r54 135r39
+57R9 Attribute 62e17 64r8 71r8 72r26 94r23 118r62 127r66 209r14 220r14 235r16
+59m10*Foreground{54M9} 66r10 199r55 212m12 223m12 223r49 241m12 241r49
+60m10*Background{54M9} 67r10 205r55 213m12 213r49 224m12 240m12
+61m10*Reserved{4|63M9} 68r10
+74R9 COORD 78e17 79r26 92r23 93r23 96r23 115r62 124r101 127r101 178r17 236r16
+76i10*X{49I12} 167r48 181r18 181r43 182m18 182r44
+77i10*Y{49I12} 173r48 184r18 184r43 185m18 185r44
+81R9 SMALL_RECT 87e17 88r26 95r23
+83i10*Left{49I12}
+84i10*Top{49I12}
+85i10*Right{49I12}
+86i10*Bottom{49I12}
+90R9 CONSOLE_SCREEN_BUFFER_INFO 97e17 98r26 100r51 146r31
+92r10*Size{74R9} 181r38 182r39 184r38 185r39
+93r10*Cursor_Pos{74R9} 167r37 173r37
+94r10*Attrib{57R9} 199r48 205r48 213r42 223r42 241r42
+95r10*Window{81R9}
+96r10*Max_Size{74R9}
+100P9 PCONSOLE_SCREEN_BUFFER_INFO(90R9) 101r26 121r65 147r23
+103V13 GetCh{integer} 104b<c,_getch>22 273s15
+106V13 KbHit{integer} 107b<c,_kbhit>22 282s10
+109V13 MessageBeep{46M12} 109>26 110b28 261s10
+109m26 Kind{46M12}
+112V13 GetStdHandle{47M12} 112>27 113b28 295s21
+112m27 Value{46M12}
+115V13 SetConsoleCursorPosition{46M12} 115>39 115>56 116b28 187s10 251s10
+115m39 Buffer{47M12}
+115r56 Pos{74R9}
+118V13 SetConsoleTextAttribute{46M12} 118>38 118>55 119b28 214s10 225s10
+. 242s10
+118m38 Buffer{47M12}
+118r55 Attr{57R9}
+121V13 GetConsoleScreenBufferInfo{46M12} 121>41 121>58 122b28 155s10
+121m41 Buffer{47M12}
+121p58 Info{100P9}
+124V13 FillConsoleOutputCharacter{46M12} 124>41 124>59 124>77 124>93 124>108
+. 125b28 248s10
+124m41 Console{47M12}
+124e59 Char{character}
+124m77 Length{46M12}
+124r93 Start{74R9}
+124p108 Written{51P9}
+127V13 FillConsoleOutputAttribute{46M12} 127>41 127>59 127>77 127>93 127>108
+. 128b28 245s10
+127m41 Console{47M12}
+127r59 Attr{57R9}
+127m77 Length{46M12}
+127r93 Start{74R9}
+127p108 Written{51P9}
+130m4 WIN32_ERROR{46M12} 155r68 187r62 214r58 225r58 242r58 245r93 248r92
+. 251r59 261r39
+131m4 INVALID_HANDLE_VALUE{47M12} 296r23
+132m4 STD_OUTPUT_HANDLE{46M12} 295r35
+134a4 Color_Value(54M9) 212r26 224r26 240r26
+135a4 Color_Type_Value(5|34E9) 199r14 205r14
+143m4 Output_Buffer{47M12} 155r38 187r36 214r35 225r35 242r35 245r38 248r38
+. 251r36 295m4 296r7
+144m4 Num_Bytes{46M12} 145m34 145r34
+145p4 Num_Bytes_Access{51P9} 245r73 248r72
+146r4 Buffer_Info_Rec{90R9} 147m54 147r54 167r21 173r21 181r22 182r23 184r22
+. 185r23 199r32 205r32 213r26 223r26 241r26
+147p4 Buffer_Info{100P9} 155r53
+153U14 Get_Buffer_Info 153b14 158l8 158t23 166s7 172s7 180s7 198s7 204s7
+. 211s7 222s7 239s7
+178r7 New_Pos{74R9} 181r10 182m10 184r10 185m10 187r51
+209r7 Attr{57R9} 212m7 213m7 214r50
+220r7 Attr{57R9} 223m7 224m7 225r50
+235r7 Attr{57R9} 240m7 241m7 242r50 245r53
+236r7 Home{74R9} 245r67 248r66 251r51
+237m7 Length{46M12} 245r59 248r58
+271i7 Temp{integer} 273m7 274r10 275m10 277r29
+
