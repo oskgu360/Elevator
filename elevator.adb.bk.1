@@ -13,8 +13,8 @@ procedure elevator is
 
     task semaphore is
             entry P;			-- Dijkstra’s terminology
-            ENTRY V;
-    end semaphore;
+            entry V;			-- from the Dutch
+	end semaphore;
 	task body semaphore is
 		begin
 		loop

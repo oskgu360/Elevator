@@ -13,8 +13,8 @@ procedure elevator is
 
     task semaphore is
             entry P;			-- Dijkstra’s terminology
-            ENTRY V;
-    end semaphore;
+            entry V;			-- from the Dutch	
+	end semaphore;
 	task body semaphore is
 		begin
 		loop
@@ -50,7 +50,7 @@ procedure elevator is
 
 
     --- TASK BUTTONS ----
-    task button_signals is
+    task button_signals is 
         entry cart_press (F : in integer);
         entry floor_press (D : in floors.direction; L : in integer);
     end button_signals;
@@ -59,15 +59,15 @@ procedure elevator is
         loop
             select
                 accept cart_press(F : in integer) do
-                    pressCartButton(cart_one, F);
+                    pressCartButton(cart_one, F); 
                 end cart_press;
-            or
+            or  
                 accept floor_press(D : in direction; L : in integer) do
                     pressFloorButton(cart_one, L, D);
                 end floor_press;
             end select;
         end loop;
-    end button_signals;
+    end button_signals; 
 
     -- Gets user input
     task Get_Input;
@@ -77,16 +77,13 @@ procedure elevator is
         Length : Integer;
         LengthDir : Integer;
         LevelInt : Integer;
-    BEGIN
-       semaphore.p;
-       Goto_XY(0,0);
-       Put ("What do you want to do? ex. t4(to floor 4), u2(up from floor 2), d1 (down from floor 1)");
-       Semaphore.V;
-
-       LOOP
-          semaphore.p;
-          Goto_XY(0,1);
-          semaphore.v;
+    begin
+        loop
+            semaphore.p;
+            Goto_XY(0,0);
+            Put ("What do you want to do? ex. t4(to floor 4), u2(up from floor 2), d1 (down from floor 1)");
+            Goto_XY(0,1);
+            semaphore.v;
             Get_Line (level, Length);
             New_Line;
             IF level (1..1) = "u" THEN
@@ -98,14 +95,17 @@ procedure elevator is
             ELSIF level (1..1) = "t" THEN
                 LevelInt := Integer'Value (Level (2 .. 2));
                 button_signals.cart_press(levelInt);
-            end if;
-
-           semaphore.p;
-           Goto_XY(0,1);
-           Put("                                   "); new_line;
-           semaphore.v;
+            end if;  
+            
+            semaphore.p;
+            Goto_XY(0,0);
+            Put("                                   "); new_line;
+            Put("                                   ");new_line;
+            Put("                                   ");new_line;
+            Put("                                   ");new_line;
+            semaphore.v;
         end loop;
-
+     
     end Get_Input;
 
 
@@ -114,7 +114,7 @@ procedure elevator is
         button : String (1..80);
         Length : Integer;
         level : Integer;
-    BEGIN
+    BEGIN   
         Put ("Press which button?> ");
         Get_Line (button, Length);
         New_Line;
@@ -130,7 +130,7 @@ procedure elevator is
         end loop;
     end driveC;
     --- MAIN ---
-begin
+begin  
     loop
         delaY 60.0; --Run forever until closed
     end loop;

@@ -1,4 +1,6 @@
-V "GNAT Lib v4.9"
+V "GNAT Lib v2017"
+A -gnatwu
+A -gnat05
 P ZX
 
 RN
@@ -9,7 +11,7 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U nt_console%b		nt_console.adb		d0392659 OO PK
+U nt_console%b		nt_console.adb		e321c588 OO PK
 W ada.exceptions%s	a-except.adb		a-except.ali
 W interfaces%s		interfac.ads		interfac.ali
 W system%s		system.ads		system.ali
@@ -19,22 +21,22 @@ L "-luser32"
 
 U nt_console%s		nt_console.ads		92484855 EE NE OO PK
 
-D ada.ads		20070406091342 3ffc8e18
-D a-except.ads		20140129161953 f86a4103
-D a-unccon.ads		20070406091342 f9eb8f06
-D interfac.ads		20140225151838 69adb1b9
-D nt_console.ads	20180514015739 92484855
-D nt_console.adb	20180514015739 2bdcdfb5
-D system.ads		20160213141829 90249111
-D s-exctab.ads		20140225151139 54135002
-D s-parame.ads		20140225151139 ab8cb46a
-D s-stalib.ads		20140225151139 a891183f
-D s-traent.ads		20140225151139 b5116092
+D ada.ads		20170516105950 76789da1 ada%s
+D a-except.ads		20170516105952 291912d5 ada.exceptions%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D nt_console.ads	20030323060124 92484855 nt_console%s
+D nt_console.adb	20030323060124 2bdcdfb5 nt_console%b
+D system.ads		20170516105954 32a08138 system%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-parame.ads		20170516105954 7e2a0d7f system.parameters%s
+D s-stalib.ads		20170516105954 09bd3940 system.standard_library%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
 X 4 interfac.ads
-38K9*Interfaces 179e15 6|27w6 27r22
-57M9*Unsigned_8 6|61r23
-60M9*Unsigned_16 6|48r22
-63M9*Unsigned_32 6|46r22 47r22
+38K9*Interfaces 184e15 6|27w6 27r22
+63M9*Unsigned_8 6|61r23
+66M9*Unsigned_16 6|48r22
+74M9*Unsigned_32 6|46r22 47r22
 X 5 nt_console.ads
 25K9*NT_Console 223l5 223e15 6|29b14 300l5 300t15
 31I12*X_Pos{natural} 189r28 192r30 192r39 6|164r28 167r14 176r30 176r39 237r33
@@ -223,17 +225,17 @@ X 6 nt_console.adb
 42X4 Invalid_Handle_Error 297r13
 43X4 Fill_Attribute_Error 246r16
 44X4 Cursor_Position_Error 252r16
-46M12 DWORD{4|63M9} 51r31 109r33 109r47 112r35 115r76 118r80 121r101 124r86
+46M12 DWORD{4|74M9} 51r31 109r33 109r47 112r35 115r76 118r80 121r101 124r86
 . 124r134 127r86 127r134 130r36 132r36 144r31 237r16 237r25
-47M12 HANDLE{4|63M9} 112r49 115r48 118r47 121r50 124r51 127r51 131r36 143r23
-48M12 WORD{4|60M9}
+47M12 HANDLE{4|74M9} 112r49 115r48 118r47 121r50 124r51 127r51 131r36 143r23
+48M12 WORD{4|66M9}
 49I12 SHORT{short_integer} 76r14 77r14 83r19 84r19 85r19 86r19 178r27 178r38
 51P9 LPDWORD(46M12) 52r26 124r118 127r118 145r23
 54M9 Nibble 55r8 59r23 60r23 134r54 135r39
 57R9 Attribute 62e17 64r8 71r8 72r26 94r23 118r62 127r66 209r14 220r14 235r16
 59m10*Foreground{54M9} 66r10 199r55 212m12 223m12 223r49 241m12 241r49
 60m10*Background{54M9} 67r10 205r55 213m12 213r49 224m12 240m12
-61m10*Reserved{4|57M9} 68r10
+61m10*Reserved{4|63M9} 68r10
 74R9 COORD 78e17 79r26 92r23 93r23 96r23 115r62 124r101 127r101 178r17 236r16
 76i10*X{49I12} 167r48 181r18 181r43 182m18 182r44
 77i10*Y{49I12} 173r48 184r18 184r43 185m18 185r44
