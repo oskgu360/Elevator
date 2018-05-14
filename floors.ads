@@ -10,6 +10,5 @@ PACKAGE Floors IS
         end record;
     
     function initFloor(L : Integer) return floors; -- Constructor
-    -- function which_level(F : floors) return integer;  FUCK GETTERS
 
 End Floors;

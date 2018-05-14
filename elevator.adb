@@ -79,47 +79,31 @@ procedure elevator is
         LevelInt : Integer;
     begin
         loop
-        semaphore.p;
-        Goto_XY(0,0);
-        Put ("What do you want to do? ex. t4(to floor 4), u2(up from floor 2), d1 (down from floor 1)");
-        Goto_XY(0,1);
-        semaphore.v;
-        Get_Line (level, Length);
-        New_Line;
-        IF level (1..1) = "u" THEN
-            -- Put_line ("Going up!");
-            LevelInt := Integer'Value (Level (2 .. 2));
-            button_signals.floor_press(Up, levelInt);
-        ELSIF level (1..1) = "d" THEN
-            -- Put_line ("Going down!");
-            LevelInt := Integer'Value (Level (2 .. 2));
-            button_signals.floor_press(Down, levelInt);
-        ELSIF level (1..1) = "t" THEN
-            -- Put_line ("Going down!");
-            LevelInt := Integer'Value (Level (2 .. 2));
-            button_signals.cart_press(levelInt);
-        end if;  
-        -- LevelInt := Integer'Value (Level (1..Length));
-        -- semaphore.p;
-        -- Goto_XY(0,3);
-        -- Put_line ("Do you want to go up or down?");
-        -- semaphore.v;
-        -- Get_Line (direction, LengthDir);
-        -- New_Line;
-        -- IF Direction (1..LengthDir) = "up" THEN
-        --     Put_line ("Going up!");
-        --     button_signals.floor_press(Up, levelInt);
-        -- ELSIF Direction (1..LengthDir) = "down" THEN
-        --      Put_line ("Going down!");
-        --     button_signals.floor_press(Down, levelInt);
-        -- end if;
-        semaphore.p;
-        Goto_XY(0,0);
-        Put("                                   "); new_line;
-        Put("                                   ");new_line;
-        Put("                                   ");new_line;
-        Put("                                   ");new_line;
-        semaphore.v;
+            semaphore.p;
+            Goto_XY(0,0);
+            Put ("What do you want to do? ex. t4(to floor 4), u2(up from floor 2), d1 (down from floor 1)");
+            Goto_XY(0,1);
+            semaphore.v;
+            Get_Line (level, Length);
+            New_Line;
+            IF level (1..1) = "u" THEN
+                LevelInt := Integer'Value (Level (2 .. 2));
+                button_signals.floor_press(Up, levelInt);
+            ELSIF level (1..1) = "d" THEN
+                LevelInt := Integer'Value (Level (2 .. 2));
+                button_signals.floor_press(Down, levelInt);
+            ELSIF level (1..1) = "t" THEN
+                LevelInt := Integer'Value (Level (2 .. 2));
+                button_signals.cart_press(levelInt);
+            end if;  
+            
+            semaphore.p;
+            Goto_XY(0,0);
+            Put("                                   "); new_line;
+            Put("                                   ");new_line;
+            Put("                                   ");new_line;
+            Put("                                   ");new_line;
+            semaphore.v;
         end loop;
      
     end Get_Input;
@@ -137,22 +121,6 @@ procedure elevator is
         Level := Integer'Value (button (1..Length));
     end inside_elevator;
 
-
-    -- -- SIM --
-    -- task sim;
-    -- task body sim is
-    -- begin
-    --     button_signals.cart_press(6);
-       
-    --     button_signals.cart_press(-1);
-    
-    --     button_signals.floor_press(Up, -1);
-    
-    --     button_signals.floor_press(Down, 5);
-    --     delay 10.0;
-    --     button_signals.cart_press(4);
-    -- end sim;
-
     task driveC;
     task body driveC is
     begin
@@ -163,13 +131,7 @@ procedure elevator is
     end driveC;
     --- MAIN ---
 begin  
-    -- button_signals.cart_press(8);
-    -- button_signals.cart_press(-1);
-    -- button_signals.floor_press(Up, -1);
-    -- Get_Input;
-
-    -- Inside_Elel
     loop
-        delaY 60.0;
+        delaY 60.0; --Run forever until closed
     end loop;
 end elevator;
