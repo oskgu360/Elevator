@@ -1,5 +1,5 @@
-WITH Ada.Containers.Indefinite_Vectors; USE Ada.Containers;
 with floors; use floors;
+with Calendar; use Calendar;
 with button; use button;
 PACKAGE Cart IS
 
@@ -14,7 +14,7 @@ PACKAGE Cart IS
                   floorList : floor_list;
                   buttons : floor_buttons;
                   dir : floors.direction;
-                  idle : boolean;
+                  operationDelay : time;
             end record;
     
       function initCart return cart; -- Constructor

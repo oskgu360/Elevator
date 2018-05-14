@@ -1,5 +1,4 @@
 WITH Text_Io; USE Text_Io;
-with Calendar; use Calendar;
 WITH NT_Console; USE NT_Console;
 
 PACKAGE BODY Cart IS
@@ -24,22 +23,20 @@ PACKAGE BODY Cart IS
                   C.floorList(I) := initFloor(I);
                   C.buttons(I) := initButton;
             end loop;
-
+            C.operationDelay := clock;
             C.level := C.floorList(0);   
             C.max_level := C.level.level;
             C.min_level := C.level.level;
             C.dir := Up;
-            C.idle := true;
             RETURN C;
       END;  
 
 
       procedure driveCart(C : IN OUT cart) IS
-            operationDelay : time;
       BEGIN
-            operationDelay := clock;            
-            operationDelay := operationDelay + 2.0;
-            delay until operationDelay;
+                        
+            C.operationDelay := C.operationDelay + 2.0;
+            delay until C.operationDelay;
             
             semaphore.P;
 
@@ -51,8 +48,8 @@ PACKAGE BODY Cart IS
                   setFalse(C.buttons(C.level.level));
                   calculateMinMax(C); -- Calculate new min max
             
-                  operationDelay := operationDelay + 5.0;
-                  delay until operationDelay;
+                  C.operationDelay := C.operationDelay + 5.0;
+                  delay until C.operationDelay;
 
             elsif C.dir = Down AND
             (isPressed(C.floorList(C.level.level).buttons(Down)) OR
@@ -62,8 +59,8 @@ PACKAGE BODY Cart IS
                   setFalse(C.buttons(C.level.level));
                   calculateMinMax(C); -- Calculate new min max
 
-                  operationDelay := operationDelay + 5.0;
-                  delay until operationDelay;
+                  C.operationDelay := C.operationDelay + 5.0;
+                  delay until C.operationDelay;
             end if;
             
             if C.level.level < C.max_level AND C.dir = Up then
